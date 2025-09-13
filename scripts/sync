@@ -1,0 +1,4 @@
+#!/bin/bash
+
+pnpm build
+rsync -avz --progress --delete -e "ssh -i ~/.ssh/website" dist/ root@ronshavit.com:/var/www/site
