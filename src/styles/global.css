@@ -6,3 +6,22 @@
     --g4: #f0f0f0;
     --p: #ff5f59;
 }
+
+html {
+    background: var(--g0);
+    color: var(--g4);
+    font-family: var(--font-body), system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-header), system-ui, sans-serif;
+}
+
+code {
+    font-family: var(--font-mono), monospace;
+}

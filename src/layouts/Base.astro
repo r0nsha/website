@@ -1,6 +1,8 @@
 ---
 import "../styles/normalize.css";
 import "../styles/global.css";
+
+import { Font } from "astro:assets";
 ---
 
 <html lang="en">
@@ -9,6 +11,9 @@ import "../styles/global.css";
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
+        <Font cssVariable="--font-header" preload />
+        <Font cssVariable="--font-body" preload />
+        <Font cssVariable="--font-mono" preload />
         <title>Ron Shavit</title>
     </head>
     <body>
