@@ -1,0 +1,16 @@
+---
+import Base from "../layouts/Base.astro";
+import PostList from "../components/PostList.astro";
+---
+
+<Base>
+    <h1>Posts</h1>
+    <PostList hash />
+</Base>
+
+<style>
+    h1::before {
+        content: "";
+        margin: 0;
+    }
+</style>

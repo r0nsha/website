@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import PostList from "../components/PostList.astro";
 ---
 
 <Base>
@@ -23,58 +24,12 @@ import Base from "../layouts/Base.astro";
         <a href="https://www.ptsg.dev" target="_blank">Podcast</a>
     </p>
     <h3>Recent posts</h3>
-    <ul class="posts">
-        <li>
-            <time>2025-07-31</time>
-            <span>
-                <a href="/">Hello World</a>
-            </span>
-        </li>
-        <li>
-            <time>2025-05-15</time>
-            <span>
-                <a href="/">Wat</a>
-            </span>
-        </li>
-        <li>
-            <time>2024-12-02</time>
-            <span>
-                <a href="/">Some other unimportant opinion</a>
-            </span>
-        </li>
-    </ul>
+    <PostList />
 </Base>
 
 <style>
     p.links {
         display: flex;
         gap: 0.5rem;
-    }
-
-    ul.posts {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        list-style: none;
-        padding: 0;
-
-        & > li {
-            & > time {
-                padding-inline-end: 1rem;
-                color: var(--g3);
-            }
-
-            & > span {
-                &::before {
-                    content: "#";
-                    margin-inline-end: 0.25rem;
-                    color: var(--p);
-                }
-
-                & > a {
-                    text-decoration: none;
-                }
-            }
-        }
     }
 </style>

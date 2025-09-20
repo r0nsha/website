@@ -1,0 +1,55 @@
+---
+const { hash = false } = Astro.props;
+---
+
+<ul class:list={hash && "hash"}>
+    <li>
+        <time>2025-07-31</time>
+        <span>
+            <a href="/">Hello World</a>
+        </span>
+    </li>
+    <li>
+        <time>2025-05-15</time>
+        <span>
+            <a href="/">Wat</a>
+        </span>
+    </li>
+    <li>
+        <time>2024-12-02</time>
+        <span>
+            <a href="/">Some other unimportant opinion</a>
+        </span>
+    </li>
+</ul>
+
+<style>
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        list-style: none;
+        padding: 0;
+
+        & > li {
+            & > time {
+                padding-inline-end: 0.5rem;
+                color: var(--g3);
+            }
+
+            & > span {
+                & > a {
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+            }
+        }
+        &.hash {
+            & > li > span::before {
+                content: "#";
+                margin-inline-end: 0.25rem;
+                color: var(--p);
+            }
+        }
+    }
+</style>
