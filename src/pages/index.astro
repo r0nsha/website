@@ -1,6 +1,5 @@
 ---
 import Base from "../layouts/Base.astro";
-import Halftone from "../components/Halftone.astro";
 ---
 
 <Base>
@@ -12,16 +11,46 @@ import Halftone from "../components/Halftone.astro";
         This is a place where I post up various half-baked ideas and opinions about programming and
         maybe some other topics.
     </p>
-    <h3>Recent Posts</h3>
-    <p>
-        Beyond its technical strengths, Rust also shines thanks to its vibrant and supportive
-        community. The ecosystem continues to grow with robust tooling, crates (libraries), and
-        excellent documentation. From powering web servers with frameworks like Actix and Rocket to
-        enabling safe concurrent code for large-scale systems, Rust is carving out a role as the
-        go-to language for developers who value both speed and safety. For those willing to embrace
-        its learning curve, Rust offers a future-proof skill set that combines the best of
-        performance, modern design, and developer confidence.
-    </p>
-    <p>Here's a simple rust program that prints "Hello, world!" to the console:</p>
-    <code>println!("Hello, world!");</code>
+    <h3>Recent posts</h3>
+    <ul class="posts">
+        <li>
+            <time>2025-07-31</time>
+            <a href="/">Post 00: Hello World</a>
+        </li>
+        <li>
+            <time>2025-05-15</time>
+            <a href="/">Post 01: Wat</a>
+        </li>
+        <li>
+            <time>2024-12-02</time>
+            <a href="/">Post 02: Some other unimportant opinion</a>
+        </li>
+    </ul>
 </Base>
+
+<style>
+    ul.posts {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        list-style: none;
+        padding: 0;
+
+        & > li {
+            & > time {
+                padding-inline-end: 1rem;
+                color: var(--g3);
+            }
+
+            & > a {
+                text-decoration: none;
+
+                &::before {
+                    content: "#";
+                    margin-inline-end: 0.25rem;
+                    color: var(--p);
+                }
+            }
+        }
+    }
+</style>
