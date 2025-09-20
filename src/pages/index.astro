@@ -16,9 +16,11 @@ import Base from "../layouts/Base.astro";
         I also co-host an <a href="https://www.ptsg.dev" target="_blank">awesome podcast</a>, where
         I blabber about my unsolicited opinions in Hebrew.
     </p>
-    <p>
-        You can find me on <a href="https://github.com/r0nsha" target="_blank">GitHub</a> and
-        <a href="https://www.linkedin.com/in/ron-shavit-b3b7074b/" target="_blank">LinkedIn</a>.
+    <h3>Links</h3>
+    <p class="links">
+        <a href="https://www.github.com/r0nsha" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/ron-shavit-b3b7074b/" target="_blank">LinkedIn</a>
+        <a href="https://www.ptsg.dev" target="_blank">Podcast</a>
     </p>
     <h3>Recent posts</h3>
     <ul class="posts">
@@ -44,6 +46,11 @@ import Base from "../layouts/Base.astro";
 </Base>
 
 <style>
+    p.links {
+        display: flex;
+        gap: 0.5rem;
+    }
+
     ul.posts {
         display: flex;
         flex-direction: column;

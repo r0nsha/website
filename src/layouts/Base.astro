@@ -50,7 +50,7 @@ import NavLink from "../components/NavLink.astro";
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 1rem;
             margin-block: 1rem;
 
             & > #logo {
@@ -72,7 +72,7 @@ import NavLink from "../components/NavLink.astro";
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 1rem;
             border-block-start: 2px dashed var(--g2);
             margin-block: 2rem;
             padding-block-start: 1rem;
@@ -88,6 +88,15 @@ import NavLink from "../components/NavLink.astro";
 
             header {
                 margin-block-start: 0.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
             }
         }
     }
