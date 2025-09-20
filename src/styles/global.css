@@ -10,7 +10,7 @@
 html {
     background: var(--g0);
     color: var(--g4);
-    font-family: var(--font-body), system-ui, sans-serif;
+    font-family: var(--font-default), system-ui, sans-serif;
 }
 
 h1,

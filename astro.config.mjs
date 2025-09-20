@@ -10,13 +10,13 @@ export default defineConfig({
         fonts: [
             {
                 provider: fontProviders.fontshare(),
-                name: "Clash Display",
-                cssVariable: "--font-header",
+                name: "Satoshi",
+                cssVariable: "--font-default",
             },
             {
                 provider: fontProviders.fontshare(),
-                name: "Satoshi",
-                cssVariable: "--font-body",
+                name: "Clash Display",
+                cssVariable: "--font-header",
             },
             {
                 provider: "local",
