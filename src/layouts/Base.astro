@@ -25,14 +25,17 @@ import { Font } from "astro:assets";
 
                 header {
                     display: flex;
-                    gap: 1rem;
                     justify-content: space-between;
                     align-items: center;
+                    flex-wrap: wrap;
+                    gap: 1rem;
                     margin-block: 1rem;
 
                     & > #logo {
+                        font-family: var(--font-header);
                         font-size: 1.5rem;
                         font-weight: bold;
+                        border-bottom: 0;
                     }
 
                     & > nav {
@@ -52,8 +55,6 @@ import { Font } from "astro:assets";
                     }
 
                     header {
-                        flex-direction: column;
-                        align-items: flex-start;
                         margin-block-start: 0.5rem;
                     }
                 }

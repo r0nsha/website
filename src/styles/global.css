@@ -20,6 +20,12 @@ h4,
 h5,
 h6 {
     font-family: var(--font-header), system-ui, sans-serif;
+
+    &::before {
+        content: "#";
+        margin-inline-end: 0.25rem;
+        color: var(--p);
+    }
 }
 
 p {
@@ -33,10 +39,16 @@ code {
 a {
     color: var(--g4);
     text-decoration: none;
+    border-bottom: 2px solid var(--p);
+    cursor: pointer;
 
     &:hover,
     &:focus,
     &:visited {
         color: var(--g4);
+    }
+
+    &:hover {
+        background: var(--p);
     }
 }

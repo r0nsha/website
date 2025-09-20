@@ -9,12 +9,12 @@ export default defineConfig({
     experimental: {
         fonts: [
             {
-                provider: fontProviders.fontshare(),
+                provider: fontProviders.bunny(),
                 name: "Satoshi",
                 cssVariable: "--font-default",
             },
             {
-                provider: fontProviders.fontshare(),
+                provider: fontProviders.bunny(),
                 name: "Space Grotesk",
                 cssVariable: "--font-header",
             },
