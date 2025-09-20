@@ -22,6 +22,21 @@ h6 {
     font-family: var(--font-header), system-ui, sans-serif;
 }
 
+p {
+    margin: 1rem 0;
+}
+
 code {
     font-family: var(--font-mono), monospace;
+}
+
+a {
+    color: var(--g4);
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:visited {
+        color: var(--g4);
+    }
 }

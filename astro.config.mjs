@@ -15,7 +15,7 @@ export default defineConfig({
             },
             {
                 provider: fontProviders.fontshare(),
-                name: "Clash Display",
+                name: "Space Grotesk",
                 cssVariable: "--font-header",
             },
             {
