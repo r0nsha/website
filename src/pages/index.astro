@@ -15,15 +15,21 @@ import Base from "../layouts/Base.astro";
     <ul class="posts">
         <li>
             <time>2025-07-31</time>
-            <a href="/">Hello World</a>
+            <span>
+                <a href="/">Hello World</a>
+            </span>
         </li>
         <li>
             <time>2025-05-15</time>
-            <a href="/">Wat</a>
+            <span>
+                <a href="/">Wat</a>
+            </span>
         </li>
         <li>
             <time>2024-12-02</time>
-            <a href="/">Some other unimportant opinion</a>
+            <span>
+                <a href="/">Some other unimportant opinion</a>
+            </span>
         </li>
     </ul>
 </Base>
@@ -42,13 +48,15 @@ import Base from "../layouts/Base.astro";
                 color: var(--g3);
             }
 
-            & > a {
-                text-decoration: none;
-
+            & > span {
                 &::before {
                     content: "#";
-                    margin-inline-end: 0.5rem;
+                    margin-inline-end: 0.25rem;
                     color: var(--p);
+                }
+
+                & > a {
+                    text-decoration: none;
                 }
             }
         }
