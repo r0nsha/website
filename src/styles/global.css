@@ -1,15 +1,16 @@
 :root {
-    --g0: #121212;
+    --bg: #121212;
     --g1: #333333;
     --g2: #555555;
     --g3: #808080;
-    --g4: #f0f0f0;
+    --g4: #b0b0b0;
+    --fg: #f0f0f0;
     --p: #ff5f59;
 }
 
 html {
-    background: var(--g0);
-    color: var(--g4);
+    background: var(--bg);
+    color: var(--fg);
     font-family: var(--font-default), system-ui, sans-serif;
 }
 
@@ -23,7 +24,7 @@ h6 {
 
     &::before {
         content: "#";
-        margin-inline-end: 0.25rem;
+        margin-inline-end: 0.5rem;
         color: var(--p);
     }
 }
@@ -37,18 +38,25 @@ code {
 }
 
 a {
-    color: var(--g4);
-    text-decoration: none;
-    border-bottom: 2px solid var(--p);
+    color: var(--fg);
+    text-decoration: underline;
+    text-decoration-color: var(--p);
     cursor: pointer;
 
-    &:hover,
-    &:focus,
     &:visited {
-        color: var(--g4);
+        color: var(--fg);
     }
 
     &:hover {
         background: var(--p);
+    }
+
+    &.subtle {
+        color: var(--g3);
+        text-decoration: none;
+
+        &:hover {
+            background: var(--g1);
+        }
     }
 }

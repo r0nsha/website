@@ -3,6 +3,7 @@ import "../styles/normalize.css";
 import "../styles/global.css";
 
 import { Font } from "astro:assets";
+import NavLink from "../components/NavLink.astro";
 ---
 
 <html lang="en">
@@ -15,60 +16,79 @@ import { Font } from "astro:assets";
         <Font cssVariable="--font-header" preload />
         <Font cssVariable="--font-mono" preload />
         <title>Ron Shavit</title>
-        <style>
-            :root {
-                body {
-                    max-width: 720px;
-                    padding: 1rem;
-                    margin: 0 auto;
-                }
-
-                header {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    flex-wrap: wrap;
-                    gap: 1rem;
-                    margin-block: 1rem;
-
-                    & > #logo {
-                        font-family: var(--font-header);
-                        font-size: 1.5rem;
-                        font-weight: bold;
-                        border-bottom: 0;
-                    }
-
-                    & > nav {
-                        display: flex;
-                        align-items: center;
-                        gap: 1rem;
-                        font-size: 1rem;
-                    }
-                }
-
-                @media (max-width: 720px) {
-                    body {
-                        width: auto;
-                        max-width: none;
-                        padding: 1.25rem;
-                        margin: 0;
-                    }
-
-                    header {
-                        margin-block-start: 0.5rem;
-                    }
-                }
-            }
-        </style>
     </head>
     <body>
         <header>
             <a id="logo" href="/">Ron Shavit</a>
             <nav>
-                <a>/about</a>
-                <a>/posts</a>
+                <NavLink href="/">/about</NavLink>
+                <NavLink href="/posts">/posts</NavLink>
             </nav>
         </header>
         <slot />
+        <footer>
+            <span>
+                Contact me at <a href="mailto:me@ronshavit.com">me@ronshavit.com</a>
+            </span>
+            <a href="https://github.com/r0nsha/website" target="_blank" class="subtle"
+                >Source code</a
+            >
+        </footer>
     </body>
 </html>
+
+<style>
+    :root {
+        body {
+            max-width: 720px;
+            padding: 1rem;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-block: 1rem;
+
+            & > #logo {
+                font-family: var(--font-header);
+                font-size: 1.5rem;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            & > nav {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            border-block-start: 2px dashed var(--g2);
+            margin-block: 2rem;
+            padding-block-start: 1rem;
+        }
+
+        @media (max-width: 720px) {
+            body {
+                width: auto;
+                max-width: none;
+                padding: 1.25rem;
+                margin: 0;
+            }
+
+            header {
+                margin-block-start: 0.5rem;
+            }
+        }
+    }
+</style>
