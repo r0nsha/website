@@ -1,26 +1,27 @@
 ---
+import { getCollection } from "astro:content";
+
 const { hash = false } = Astro.props;
+const posts = await getCollection("posts");
 ---
 
 <ul class:list={hash && "hash"}>
-    <li>
-        <time>2025-07-31</time>
-        <span>
-            <a href="/">Hello World</a>
-        </span>
-    </li>
-    <li>
-        <time>2025-05-15</time>
-        <span>
-            <a href="/">Wat</a>
-        </span>
-    </li>
-    <li>
-        <time>2024-12-02</time>
-        <span>
-            <a href="/">Some other unimportant opinion</a>
-        </span>
-    </li>
+    {
+        posts.map((post) => (
+            <li>
+                <time datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                    })}
+                </time>
+                <span>
+                    <a href={`/posts/${post.id}`}>{post.data.title}</a>
+                </span>
+            </li>
+        ))
+    }
 </ul>
 
 <style>
@@ -33,7 +34,8 @@ const { hash = false } = Astro.props;
 
         & > li {
             & > time {
-                padding-inline-end: 0.5rem;
+                display: inline-block;
+                width: 6.5rem;
                 color: var(--g3);
             }
 
@@ -44,6 +46,7 @@ const { hash = false } = Astro.props;
                 }
             }
         }
+
         &.hash {
             & > li > span::before {
                 content: "#";

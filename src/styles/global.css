@@ -2,7 +2,8 @@
     --bg: #0a0a0a;
     --g1: #262626;
     --g2: #474747;
-    --g3: #696969;
+    --g3: #7a7a7a;
+    --g4: #a0a0a0;
     --fg: #f0f0f0;
     --p: #9a2549;
 }
@@ -13,7 +14,19 @@ html {
     font-family: var(--font-default), system-ui, sans-serif;
 }
 
-h1,
+h1 {
+    font-family: var(--font-header), system-ui, sans-serif;
+    margin-inline-end: 1rem;
+    margin-block-end: 0.125em;
+
+    &::after {
+        content: ".";
+        font-size: 1.5em;
+        color: var(--p);
+        margin-inline-start: 0.125rem;
+    }
+}
+
 h2,
 h3,
 h4,
@@ -75,4 +88,8 @@ img {
     &:active {
         filter: grayscale(0%) brightness(1);
     }
+}
+
+ul {
+    list-style: square;
 }
