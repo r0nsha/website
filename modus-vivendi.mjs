@@ -12,7 +12,7 @@ const c = {
     pink: "#feacd0",
 };
 
-const theme = {
+export default {
     name: "modus-vivendi",
     settings: [
         {
@@ -351,5 +351,3 @@ const theme = {
         },
     ],
 };
-
-export default theme;
