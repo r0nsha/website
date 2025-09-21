@@ -4,27 +4,83 @@ import PostList from "../components/PostList.astro";
 ---
 
 <Base>
-    <p>
-        I'm a coder that loves coding in an editor that's purposely build for coding.
-        <br />
-        For some mysterious reason, I also use it for everything else <i>(Yes, it's Neovim)</i>.
-    </p>
-    <p>
-        This is a place where I post up various half-baked ideas and opinions about programming, and
-        maybe some other topics.
-    </p>
-    <p>
-        I also co-host an <a href="https://www.ptsg.dev" target="_blank">awesome podcast</a>, where
-        I blabber about my unsolicited opinions in Hebrew.
-    </p>
-    <p>
-        The JavaScript event loop coordinates the <code>call stack</code>, the <code
-            >callback queue</code
-        >, and the <code>microtask queue</code> so that synchronous code runs first, then microtasks
-        (like Promise callbacks) execute, and finally queued callbacks (e.g. <code>setTimeout</code
-        >) are processed—allowing non-blocking I/O while keeping a single threaded runtime
-        predictable.
-    </p>
+    <section class="intro">
+        <img src="/src/assets/imgs/me_gin.jpg" alt="Ron Shavit and his best friend" />
+        <div id="about">
+            <p>
+                I'm a coder that loves coding in an editor that's purposely build for coding. For
+                some mysterious reason, I also use it for everything else <i>(Yes, it's Neovim)</i>.
+            </p>
+            <p>
+                This is a place where I post up various half-baked ideas and opinions about
+                programming, and maybe some other topics.
+            </p>
+        </div>
+        <p id="podcast">
+            I also co-host an <a href="https://www.ptsg.dev" target="_blank">awesome podcast</a>,
+            where I blabber about my unsolicited opinions in Hebrew.
+        </p>
+    </section>
     <h3>Recent posts</h3>
     <PostList />
 </Base>
+
+<style>
+    .intro {
+        --img-size: 12rem;
+        display: grid;
+        gap: 1.5rem;
+
+        & > img {
+            grid-column-start: 1;
+            grid-row: 1 / span 2;
+            width: var(--img-size);
+            height: var(--img-size);
+            flex-shrink: 0;
+            object-fit: cover;
+            object-position: top;
+            filter: grayscale(100%) brightness(0.85);
+        }
+
+        & p {
+            margin: 0;
+            grid-column: 2;
+        }
+
+        & #about {
+            grid-row: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        & #podcast {
+            grid-row: 2;
+            align-self: end;
+        }
+    }
+
+    .filler {
+        flex: 1;
+    }
+
+    @media (max-width: 720px) {
+        .intro {
+            --img-size: 9rem;
+            gap: 1rem;
+
+            & #about {
+                grid-row: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            & #podcast {
+                grid-column: 1 / span 2;
+                grid-row: 3;
+                align-self: end;
+            }
+        }
+    }
+</style>
