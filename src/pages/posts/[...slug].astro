@@ -1,6 +1,5 @@
 ---
 import Base from "../../layouts/Base.astro";
-import { Icon } from "astro-icon/components";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -16,9 +15,6 @@ const { Content } = await render(post);
 ---
 
 <Base>
-    <a href="javascript:history.back()" class="back" slot="top">
-        <Icon name="page-back" size="1.5rem" />
-    </a>
     <article>
         <h1>{post.data.title}</h1>
         <section class="meta">
