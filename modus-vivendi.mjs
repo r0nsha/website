@@ -21,6 +21,11 @@ const theme = {
         },
 
         {
+            scope: ["punctuation.definition.string"],
+            settings: { foreground: c.blueSubtle },
+        },
+
+        {
             scope: ["comment", "punctuation.definition.comment", "comment.block.documentation"],
             settings: { foreground: c.gray, fontStyle: "italic" },
         },
@@ -73,7 +78,7 @@ const theme = {
         },
 
         {
-            scope: ["keyword", "variable.function", "storage.type.function"],
+            scope: ["keyword", "keyword.other", "variable.function", "storage.type.function"],
             settings: { foreground: c.pink, fontStyle: "" },
         },
 
@@ -83,12 +88,7 @@ const theme = {
         },
 
         {
-            scope: [
-                "keyword.operator",
-                "keyword.operator.assignment",
-                "keyword.operator.logical",
-                "keyword.other",
-            ],
+            scope: ["keyword.operator", "keyword.operator.assignment", "keyword.operator.logical"],
             settings: { foreground: c.white },
         },
 
@@ -257,7 +257,7 @@ const theme = {
 
         {
             scope: ["storage.modifier.import", "storage.modifier", "meta.import"],
-            settings: { foreground: c.blueSubtle },
+            settings: { foreground: c.purple },
         },
 
         {
