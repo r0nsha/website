@@ -21,12 +21,21 @@ importers:
         specifier: ^0.34.4
         version: 0.34.4
     devDependencies:
+      '@shikijs/transformers':
+        specifier: 3.13.0
+        version: 3.13.0
+      hastscript:
+        specifier: 9.0.1
+        version: 9.0.1
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
       prettier-plugin-astro:
         specifier: 0.14.1
         version: 0.14.1
+      shiki:
+        specifier: 3.13.0
+        version: 3.13.0
       typescript:
         specifier: ^5.9.2
         version: 5.9.2
@@ -515,6 +524,9 @@ packages:
 
   '@shikijs/themes@3.13.0':
     resolution: {integrity: sha512-Vxw1Nm1/Od8jyA7QuAenaV78BG2nSr3/gCGdBkLpfLscddCkzkL36Q5b67SrLLfvAJTOUzW39x4FHVCFriPVgg==}
+
+  '@shikijs/transformers@3.13.0':
+    resolution: {integrity: sha512-833lcuVzcRiG+fXvgslWsM2f4gHpjEgui1ipIknSizRuTgMkNZupiXE5/TVJ6eSYfhNBFhBZKkReKWO2GgYmqA==}
 
   '@shikijs/types@3.13.0':
     resolution: {integrity: sha512-oM9P+NCFri/mmQ8LoFGVfVyemm5Hi27330zuOBp0annwJdKH1kOLndw3zCtAVDehPLg9fKqoEx3Ht/wNZxolfw==}
@@ -2325,6 +2337,11 @@ snapshots:
 
   '@shikijs/themes@3.13.0':
     dependencies:
+      '@shikijs/types': 3.13.0
+
+  '@shikijs/transformers@3.13.0':
+    dependencies:
+      '@shikijs/core': 3.13.0
       '@shikijs/types': 3.13.0
 
   '@shikijs/types@3.13.0':

@@ -144,10 +144,10 @@ fn main() {
         println!("Counter is not greater than 3.");
     }
 
-    // Define a simple function
-    fn greet(name: &str) {
-        println!("Hello, {}!", name);
-    }
+    // Define a simple function // [!code --]
+    fn greet(name: &str) { // [!code ++]
+        println!("Hello, {}!", name); // [!code ++]
+    } // [!code ++]
 
     greet("Rustaceans");
 
