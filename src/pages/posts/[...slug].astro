@@ -14,7 +14,7 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<Base>
+<Base title={post.data.title}>
     <article>
         <h1>{post.data.title}</h1>
         <section class="meta">

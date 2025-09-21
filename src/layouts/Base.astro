@@ -6,6 +6,9 @@ import NavLink from "../components/NavLink.astro";
 
 import { Font } from "astro:assets";
 import { Icon } from "astro-icon/components";
+
+const title = "Ron Shavit";
+const pageTitle = Astro.props.title ? `${Astro.props.title} - ${title}` : title;
 ---
 
 <html lang="en">
@@ -17,12 +20,12 @@ import { Icon } from "astro-icon/components";
         <Font cssVariable="--font-default" preload />
         <Font cssVariable="--font-header" preload />
         <Font cssVariable="--font-mono" preload />
-        <title>Ron Shavit</title>
+        <title>{pageTitle}</title>
     </head>
     <body>
         <header>
             <div class="header-left">
-                <a id="logo" href="/">Ron Shavit</a>
+                <a id="logo" href="/">{pageTitle}</a>
                 <div class="header-links">
                     <a href="https://www.github.com/r0nsha" target="_blank" title="GitHub">
                         <Icon name="github" size="1.25rem" />
