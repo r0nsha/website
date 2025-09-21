@@ -1,8 +1,12 @@
 ---
 import { getCollection } from "astro:content";
 
-const { hash = false } = Astro.props;
-const posts = (await getCollection("posts")).slice(0, 3);
+const { hash = false, limit = null } = Astro.props;
+let posts = await getCollection("posts");
+
+if (limit != null) {
+    posts = posts.slice(0, limit);
+}
 ---
 
 <ul class:list={hash && "hash"}>
