@@ -3,7 +3,6 @@
     --g1: #262626;
     --g2: #474747;
     --g3: #696969;
-    --g4: #909090;
     --fg: #f0f0f0;
     --p: #9a2549;
 }
@@ -33,10 +32,6 @@ p {
     margin: 1rem 0;
 }
 
-code {
-    font-family: var(--font-mono), monospace;
-}
-
 a {
     color: var(--fg);
     text-decoration: 1.5px underline solid var(--p);
@@ -56,4 +51,11 @@ a {
             color: var(--fg);
         }
     }
+}
+code {
+    font-family: var(--font-mono), monospace;
+    background: var(--g1);
+    box-shadow: inset 0 0 0 1px var(--g3);
+    padding: 0 0.25rem;
+    margin: 0 0.125rem;
 }

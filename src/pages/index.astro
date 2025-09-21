@@ -17,6 +17,14 @@ import PostList from "../components/PostList.astro";
         I also co-host an <a href="https://www.ptsg.dev" target="_blank">awesome podcast</a>, where
         I blabber about my unsolicited opinions in Hebrew.
     </p>
+    <p>
+        The JavaScript event loop coordinates the <code>call stack</code>, the <code
+            >callback queue</code
+        >, and the <code>microtask queue</code> so that synchronous code runs first, then microtasks
+        (like Promise callbacks) execute, and finally queued callbacks (e.g. <code>setTimeout</code
+        >) are processed—allowing non-blocking I/O while keeping a single threaded runtime
+        predictable.
+    </p>
     <h3>Recent posts</h3>
     <PostList />
 </Base>
