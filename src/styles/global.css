@@ -10,7 +10,7 @@
 html {
     background: var(--bg);
     color: var(--fg);
-    font-family: var(--font-mono), system-ui, sans-serif;
+    font-family: var(--font-default), system-ui, sans-serif;
 }
 
 h1,
@@ -64,15 +64,15 @@ code {
 }
 
 img {
-    background: var(--fg);
-    object-fit: cover;
+    background: var(--bg);
     border: 2px solid var(--bg);
     box-shadow: 0 0 0 1px var(--fg);
+    object-fit: cover;
     filter: grayscale(100%) brightness(0.85);
     transition: filter 0.1s ease-in-out;
 
     &:hover,
-    &:focus {
+    &:active {
         filter: grayscale(0%) brightness(1);
     }
 }
