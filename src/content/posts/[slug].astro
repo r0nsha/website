@@ -1,0 +1,12 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getCollection, render } from "astro:content";
+
+const posts = await getCollection("posts");
+---
+
+<Base>
+    <article>
+        <Markdown>{content}</Markdown>
+    </article>
+</Base>
