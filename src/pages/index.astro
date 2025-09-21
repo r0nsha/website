@@ -10,16 +10,14 @@ import meAndGin from "../assets/imgs/me_gin.jpg";
 <Base>
     <section class="intro">
         <Image src={meAndGin} alt="Ron Shavit and his best friend" />
-        <div id="about">
-            <p>
-                I'm a coder that loves coding in an editor that's purposely build for coding. For
-                some mysterious reason, I also use it for everything else <i>(Yes, it's Neovim)</i>.
-            </p>
-            <p>
-                This is a place where I post up various half-baked ideas and opinions about
-                programming, work and life in general.
-            </p>
-        </div>
+        <p id="about">
+            I'm a coder that loves coding in an editor that's purposely build for coding. For some
+            mysterious reason, I also use it for everything else <i>(Yes, it's Neovim)</i>.
+        </p>
+        <p id="place">
+            This is a place where I post up various half-baked ideas and opinions about programming,
+            work and life in general.
+        </p>
         <p id="podcast">
             I also co-host an <a href="https://www.ptsg.dev" target="_blank">awesome podcast</a>,
             where I blabber about my unsolicited opinions in Hebrew.
@@ -37,15 +35,11 @@ import meAndGin from "../assets/imgs/me_gin.jpg";
 
         & > img {
             grid-column-start: 1;
-            grid-row: 1 / span 2;
+            grid-row: 1 / span 3;
             width: var(--img-size);
             height: var(--img-size);
-            flex-shrink: 0;
-            object-fit: cover;
             object-position: top;
-            border: 2px solid var(--bg);
             box-shadow: 0 0 0 1px var(--fg);
-            filter: grayscale(100%) brightness(0.85);
         }
 
         & p {
@@ -55,13 +49,14 @@ import meAndGin from "../assets/imgs/me_gin.jpg";
 
         & #about {
             grid-row: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        }
+
+        & #place {
+            grid-row: 2;
         }
 
         & #podcast {
-            grid-row: 2;
+            grid-row: 3;
             align-self: end;
         }
     }
@@ -72,19 +67,25 @@ import meAndGin from "../assets/imgs/me_gin.jpg";
 
     @media (max-width: 720px) {
         .intro {
-            --img-size: 9rem;
+            --img-size: calc(5rem + 5vw);
             gap: 1rem;
+
+            & > img {
+                grid-row: 1 / span 2;
+            }
 
             & #about {
                 grid-row: 1;
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
+            }
+
+            & #place {
+                grid-row: 3;
+                grid-column: 1 / span 2;
             }
 
             & #podcast {
                 grid-column: 1 / span 2;
-                grid-row: 3;
+                grid-row: 4;
                 align-self: end;
             }
         }
