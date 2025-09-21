@@ -3,6 +3,7 @@ import { defineConfig, fontProviders } from "astro/config";
 import icon from "astro-icon";
 import { h } from "hastscript";
 import { transformerNotationDiff } from "@shikijs/transformers";
+import modusVivendi from "./modus-vivendi.mjs";
 
 /**
  * @returns {import("shiki").ShikiTransformer}
@@ -41,13 +42,10 @@ export default defineConfig({
     vite: {
         plugins: [],
     },
-
     integrations: [icon()],
-
-    // TODO: Modus Vivendi? Rosé Pine? Kanagawa Dragon?
     markdown: {
         shikiConfig: {
-            theme: "vesper",
+            theme: modusVivendi,
             wrap: false,
             transformers: [
                 transformerCopyButton(),
@@ -55,7 +53,6 @@ export default defineConfig({
             ],
         },
     },
-
     experimental: {
         fonts: [
             {

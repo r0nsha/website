@@ -88,13 +88,31 @@ pre[data-language] {
         padding: unset;
         margin: unset;
 
-        span.diff {
+        .diff {
+            display: inline-block;
+            width: 100%;
+            line-height: 1.25;
+
             &.add {
-                background: #00422a88;
+                background: #00381f60;
+
+                &::before {
+                    position: absolute;
+                    padding-inline: 0.25rem;
+                    content: "+";
+                    color: #237f3f;
+                }
             }
 
             &.remove {
-                background: #9d1f1f88;
+                background: #4f111960;
+
+                &::before {
+                    position: absolute;
+                    padding-inline: 0.25rem;
+                    content: "-";
+                    color: #b81a1f;
+                }
             }
         }
     }
