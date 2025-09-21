@@ -20,6 +20,7 @@ import { Icon } from "astro-icon/components";
         <title>Ron Shavit</title>
     </head>
     <body>
+        <slot name="top" />
         <header>
             <div class="header-left">
                 <a id="logo" href="/">Ron Shavit</a>
@@ -56,6 +57,7 @@ import { Icon } from "astro-icon/components";
 <style>
     :root {
         body {
+            position: relative;
             max-width: 720px;
             padding: 1rem;
             margin: 0 auto;

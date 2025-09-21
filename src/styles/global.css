@@ -76,6 +76,19 @@ code {
     margin: 0 0.125rem;
 }
 
+pre[data-language] {
+    /* background: var(--bg) !important; */
+    border: 1px solid var(--fg);
+    padding: 1rem;
+
+    code {
+        background: unset;
+        box-shadow: unset;
+        padding: unset;
+        margin: unset;
+    }
+}
+
 img {
     background: var(--bg);
     border: 2px solid var(--bg);

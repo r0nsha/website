@@ -4,8 +4,6 @@ pubDate: 2025-07-05
 tags: ["test", "markdown", "features"]
 ---
 
-# Testing Markdown Features
-
 This post is designed to **stress-test your blog’s styles**.
 
 ---
@@ -46,6 +44,7 @@ JavaScript code:
 function greet(name) {
     return `Hello, ${name}!`;
 }
+
 console.log(greet("Markdown"));
 ```
 
