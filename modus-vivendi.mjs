@@ -7,7 +7,7 @@ const c = {
     cyan: "#00d3d0",
     yellow: "#d0bc00",
     red: "#ff5f59",
-    orange: "#c0965b",
+    orange: "#dfaf7a",
     purple: "#b6a0ff",
     pink: "#feacd0",
 };
@@ -28,11 +28,6 @@ const theme = {
         {
             scope: ["comment", "punctuation.definition.comment", "comment.block.documentation"],
             settings: { foreground: c.gray, fontStyle: "italic" },
-        },
-
-        {
-            scope: ["comment.block.documentation"],
-            settings: { foreground: c.green, fontStyle: "italic" },
         },
 
         {
@@ -113,11 +108,6 @@ const theme = {
         },
 
         {
-            scope: ["variable", "variable.other", "identifier"],
-            settings: { foreground: c.cyan },
-        },
-
-        {
             scope: ["variable.other.constant", "constant", "support.constant"],
             settings: { foreground: c.cyan },
         },
@@ -130,7 +120,7 @@ const theme = {
                 "meta.class",
                 "storage.type.class",
             ],
-            settings: { foreground: c.green },
+            settings: { foreground: c.orange },
         },
 
         {
@@ -167,7 +157,7 @@ const theme = {
                 "meta.structure.dictionary.json",
                 "meta.structure.dictionary.value.json",
             ],
-            settings: { foreground: c.cyan },
+            settings: { foreground: c.white },
         },
 
         {
