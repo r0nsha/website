@@ -12,7 +12,8 @@
         "sync": "scripts/sync"
     },
     "dependencies": {
-        "astro": "^5.13.9"
+        "astro": "^5.13.9",
+        "astro-icon": "^1.1.5"
     },
     "devDependencies": {
         "prettier": "^3.6.2",

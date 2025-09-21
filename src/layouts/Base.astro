@@ -2,8 +2,10 @@
 import "../styles/normalize.css";
 import "../styles/global.css";
 
-import { Font } from "astro:assets";
 import NavLink from "../components/NavLink.astro";
+
+import { Font } from "astro:assets";
+import { Icon } from "astro-icon/components";
 ---
 
 <html lang="en">
@@ -19,7 +21,17 @@ import NavLink from "../components/NavLink.astro";
     </head>
     <body>
         <header>
-            <a id="logo" href="/">Ron Shavit</a>
+            <div class="header-left">
+                <a id="logo" href="/">Ron Shavit</a>
+                <div class="header-links">
+                    <a href="https://www.github.com/r0nsha" target="_blank">
+                        <Icon name="github" size="1.25rem" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/ron-shavit-b3b7074b/" target="_blank">
+                        <Icon name="linkedin" size="1.25rem" />
+                    </a>
+                </div>
+            </div>
             <nav>
                 <NavLink href="/">/about</NavLink>
                 <NavLink href="/posts">/posts</NavLink>
@@ -53,7 +65,23 @@ import NavLink from "../components/NavLink.astro";
             gap: 1rem;
             margin-block: 1rem 2rem;
 
-            & > #logo {
+            & .header-left {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            & .header-links {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+
+                & > a {
+                    text-decoration: none;
+                }
+            }
+
+            & #logo {
                 font-family: var(--font-header);
                 font-size: 1.5rem;
                 font-weight: bold;

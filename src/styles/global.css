@@ -39,8 +39,7 @@ code {
 
 a {
     color: var(--fg);
-    text-decoration: underline;
-    text-decoration-color: var(--p);
+    text-decoration: 1.25px underline solid var(--p);
     cursor: pointer;
 
     &:visited {
