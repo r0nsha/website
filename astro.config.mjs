@@ -9,6 +9,15 @@ export default defineConfig({
         plugins: [],
     },
 
+    integrations: [icon()],
+
+    // TODO: Modus Vivendi? Rosé Pine? Kanagawa Dragon?
+    markdown: {
+        shikiConfig: {
+            theme: "vesper",
+        },
+    },
+
     experimental: {
         fonts: [
             {
@@ -50,6 +59,4 @@ export default defineConfig({
             },
         ],
     },
-
-    integrations: [icon()],
 });
