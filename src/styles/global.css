@@ -106,3 +106,51 @@ img {
 ul {
     list-style: square;
 }
+
+/* footnotes */
+sup a[aria-describedby="footnote-label"] {
+    color: var(--p);
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+        background: transparent;
+        text-decoration: underline;
+    }
+}
+
+section.footnotes {
+    background: var(--g1);
+    border: 1px solid var(--g3);
+    padding: 1rem;
+    margin-block: 2rem;
+
+    h2 {
+        font-size: 1.25rem;
+        margin: 0;
+
+        &::before {
+            content: "";
+            margin: 0;
+        }
+    }
+
+    ol {
+        padding-inline: 1rem;
+
+        li p {
+            margin-block: 1rem;
+
+            a[data-footnote-backref] {
+                color: var(--p);
+                font-weight: bold;
+                text-decoration: none;
+                cursor: pointer;
+
+                &:hover {
+                    color: var(--fg);
+                }
+            }
+        }
+    }
+}
