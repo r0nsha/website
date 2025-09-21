@@ -1,11 +1,11 @@
 :root {
-    --bg: #121212;
-    --g1: #333333;
-    --g2: #555555;
-    --g3: #808080;
-    --g4: #b0b0b0;
+    --bg: #0a0a0a;
+    --g1: #262626;
+    --g2: #474747;
+    --g3: #696969;
+    --g4: #909090;
     --fg: #f0f0f0;
-    --p: #ff5f59;
+    --p: #9a2549;
 }
 
 html {
@@ -39,15 +39,12 @@ code {
 
 a {
     color: var(--fg);
-    text-decoration: 1.25px underline solid var(--p);
+    text-decoration: 1.5px underline solid var(--p);
     cursor: pointer;
-
-    &:visited {
-        color: var(--fg);
-    }
 
     &:hover {
         background: var(--p);
+        color: var(--fg);
     }
 
     &.subtle {
@@ -55,7 +52,8 @@ a {
         text-decoration: none;
 
         &:hover {
-            background: var(--g1);
+            background: var(--g2);
+            color: var(--fg);
         }
     }
 }

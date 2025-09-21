@@ -73,28 +73,32 @@ import { Icon } from "astro-icon/components";
                 display: flex;
                 align-items: center;
                 gap: 1rem;
-            }
 
-            & .header-links {
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-
-                & > a {
+                & #logo {
+                    font-family: var(--font-header);
+                    font-size: 1.5rem;
+                    font-weight: bold;
                     text-decoration: none;
+                }
 
-                    &:hover {
-                        background: transparent;
-                        color: var(--p);
+                & .header-links {
+                    display: flex;
+                    align-items: center;
+
+                    & > a {
+                        display: inline-flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-decoration: none;
+                        color: var(--g3);
+                        padding: 0.25rem;
+
+                        &:hover {
+                            background: transparent;
+                            color: var(--p);
+                        }
                     }
                 }
-            }
-
-            & #logo {
-                font-family: var(--font-header);
-                font-size: 1.5rem;
-                font-weight: bold;
-                text-decoration: none;
             }
 
             & > nav {
