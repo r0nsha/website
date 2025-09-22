@@ -1,4 +1,8 @@
 ---
+interface Props {
+    href: string;
+}
+
 const isActive = Astro.props.href == Astro.url.pathname;
 ---
 
@@ -8,5 +12,5 @@ const isActive = Astro.props.href == Astro.url.pathname;
 
 <style>
     a.active {
-    
+    }
 </style>

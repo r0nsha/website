@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, fontProviders } from "astro/config";
+import mdx from "@astrojs/mdx";
 import icon from "astro-icon";
 import { h } from "hastscript";
 import { transformerNotationDiff } from "@shikijs/transformers";
@@ -42,7 +43,7 @@ export default defineConfig({
     vite: {
         plugins: [],
     },
-    integrations: [icon()],
+    integrations: [icon(), mdx()],
     markdown: {
         shikiConfig: {
             theme: modusVivendi,
@@ -95,3 +96,4 @@ export default defineConfig({
         ],
     },
 });
+

@@ -12,6 +12,7 @@
         "sync": "scripts/sync"
     },
     "dependencies": {
+        "@astrojs/mdx": "^4.3.6",
         "@astrojs/ts-plugin": "^1.10.4",
         "astro": "^5.13.9",
         "astro-icon": "^1.1.5",

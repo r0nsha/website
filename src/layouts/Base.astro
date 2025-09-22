@@ -7,6 +7,10 @@ import NavLink from "../components/NavLink.astro";
 import { Font } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
+interface Props {
+    title?: string;
+}
+
 const title = "Ron Shavit";
 const pageTitle = Astro.props.title ? `${Astro.props.title} - ${title}` : title;
 ---
