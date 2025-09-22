@@ -1,0 +1,24 @@
+---
+interface Props {
+    n: number;
+}
+
+const { n } = Astro.props;
+---
+
+<section>
+    <p>Side Notes</p>
+    <ol>
+        <slot />
+    </ol>
+</section>
+
+<style>
+    ol {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        list-style: none;
+        padding: 0;
+    }
+</style>
