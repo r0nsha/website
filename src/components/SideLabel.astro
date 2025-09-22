@@ -1,0 +1,35 @@
+---
+import { numberToColor } from "../lib/color";
+
+interface Props {
+    n: number;
+}
+
+const { n } = Astro.props;
+
+const color = numberToColor(n);
+---
+
+<a
+    href="#user-content-fn-1"
+    id="user-content-fnref-1"
+    data-footnote-ref=""
+    aria-describedby="sidenote-label"
+    style={`background: ${color}40; color: ${color}ff; border-color: ${color}ff;`}
+>
+    {n}
+</a>
+
+<style>
+    a {
+        display: inline-block;
+        text-align: center;
+        width: 1.125rem;
+        margin: 0 0.25rem;
+        text-decoration: none;
+        font-weight: bold;
+        cursor: pointer;
+        border: 1px solid var(--fg);
+        font-size: 0.75rem;
+    }
+</style>
