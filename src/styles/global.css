@@ -69,6 +69,7 @@ a {
 }
 
 code {
+    display: inline-block;
     font-family: var(--font-mono), monospace;
     background: var(--g1);
     box-shadow: inset 0 0 0 1px var(--g3);
@@ -83,6 +84,7 @@ pre[data-language] {
     padding: 1rem;
 
     code {
+        display: unset;
         background: unset;
         box-shadow: unset;
         padding: unset;
