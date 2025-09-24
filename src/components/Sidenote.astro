@@ -1,10 +1,21 @@
 ---
+interface Props {
+    id: string;
+}
 
+const { id } = Astro.props;
+
+if (!id) {
+    throw new Error("Sidenote must have an id.");
+}
 ---
 
 <span class="sidenote-container">
     <sup class="sidenote-label"></sup>
-    <small class="sidenote">
+    <a id={`sidenote-${id}`} href={`#footnote-${id}`} class="sidenote-link">
+        <sup></sup>
+    </a>
+    <small data-sidenote-id={id} class="sidenote">
         <slot />
     </small>
 </span>
@@ -22,15 +33,27 @@
         }
     }
 
-    .sidenote-label {
+    .sidenote-label,
+    .sidenote-link {
         counter-increment: sidenote;
         color: var(--g4);
+        text-decoration: none;
 
-        &::after {
+        &:hover {
+            background: unset;
+        }
+
+        & sup::after {
             content: "[ " counter(sidenote) " ]";
             position: relative;
             font-size: 0.6rem;
             font-weight: bold;
+        }
+
+        &:hover {
+            & sup::after {
+                color: var(--fg);
+            }
         }
     }
 
@@ -40,7 +63,7 @@
         float: right;
         clear: both;
         color: var(--g4);
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         margin-block-end: 1.5rem;
         margin-inline-end: calc(-1 * var(--width) - 2vw);
         text-indent: 0;
@@ -50,7 +73,7 @@
             content: "[ " counter(sidenote) " ]";
             position: relative;
             inset-block-start: -0.3em;
-            font-size: 0.8em;
+            font-size: 0.85em;
             font-weight: bold;
             margin-inline-end: 0.125rem;
         }
@@ -58,13 +81,18 @@
 
     /* desktop */
     @media (min-width: 1400px) {
-        .sidenote {
+        .sidenote-link {
+            display: none;
         }
     }
 
     /* mobile */
     @media (max-width: 1400px) {
-        .sidenote-container {
+        .sidenote-label {
+            display: none;
+        }
+
+        .sidenote {
             display: none;
         }
     }

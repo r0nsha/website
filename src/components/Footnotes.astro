@@ -1,0 +1,50 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section id="footnotes">
+    <label for="footnote-list">Footnotes</label>
+    <ol id="footnote-list"></ol>
+</section>
+
+<style>
+    #footnotes {
+        border: 1px solid var(--fg);
+        padding: 1rem;
+
+        label {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        #footnote-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding-inline: 1.25rem;
+            margin-block: 1rem 0.5rem;
+
+            li a.backlink {
+                font-size: 0.8rem;
+            }
+        }
+    }
+</style>
+
+<script is:inline>
+    document.addEventListener(
+        "DOMContentLoaded",
+        () => {
+            const sidenotes = document.querySelectorAll(".sidenote-container .sidenote");
+
+            for (const sidenote of sidenotes) {
+                const id = sidenote.dataset.sidenoteId;
+                const listItem = document.createElement("li");
+                listItem.id = `footnote-${id}`;
+                listItem.innerHTML = `${sidenote.innerHTML}<a class="backlink" href="#sidenote-${id}">↩︎</a>`;
+                document.getElementById("footnote-list").appendChild(listItem);
+            }
+        },
+        { once: true }
+    );
+</script>
