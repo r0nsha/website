@@ -33,7 +33,18 @@ if (!id) {
         }
     }
 
-    .sidenote-label,
+    .sidenote-label {
+        counter-increment: sidenote;
+        color: var(--g4);
+
+        &::after {
+            content: "[ " counter(sidenote) " ]";
+            position: relative;
+            font-size: 0.6rem;
+            font-weight: bold;
+        }
+    }
+
     .sidenote-link {
         counter-increment: sidenote;
         color: var(--g4);

@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon/components";
+
 ---
 
 <section id="footnotes">
@@ -27,6 +27,13 @@ import { Icon } from "astro-icon/components";
             li a.backlink {
                 font-size: 0.8rem;
             }
+        }
+    }
+
+    /* desktop */
+    @media (min-width: 1400px) {
+        #footnotes {
+            display: none;
         }
     }
 </style>
