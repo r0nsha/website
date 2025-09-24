@@ -5,6 +5,7 @@ import icon from "astro-icon";
 import { h } from "hastscript";
 import { transformerNotationDiff } from "@shikijs/transformers";
 import modusVivendi from "./modus-vivendi.mjs";
+import remarkToc from "remark-toc";
 
 /**
  * @returns {import("shiki").ShikiTransformer}
@@ -45,7 +46,7 @@ export default defineConfig({
     },
     integrations: [icon(), mdx()],
     markdown: {
-        remarkPlugins: [],
+        remarkPlugins: [remarkToc],
         shikiConfig: {
             theme: modusVivendi,
             wrap: false,

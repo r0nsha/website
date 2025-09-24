@@ -6,8 +6,8 @@
 
 <style>
     #toc {
-        list-style: none;
-        padding: 0;
+        /* list-style: none; */
+        /* padding: 0; */
         margin: 0;
         display: flex;
         flex-direction: column;
@@ -15,9 +15,10 @@
 
         li {
             cursor: pointer;
-            line-height: 1.1;
+            color: var(--g4);
 
-            &:hover {
+            &:hover,
+            .active {
                 background: transparent;
                 color: var(--fg);
             }
@@ -38,10 +39,13 @@
     @media (min-width: 1400px) {
         #toc {
             --width: 20rem;
-            position: absolute;
-            inset-inline-start: calc(-1 * var(--width) - 1vw);
-            inset-block-start: 12.5rem;
+            inset-block-start: 4rem;
             width: var(--width);
+            position: sticky;
+            position: -webkit-sticky;
+            float: inline-start;
+            clear: both;
+            margin-inline-start: calc(-1 * var(--width) - 1vw);
 
             li a {
                 font-size: 0.9rem;
@@ -53,6 +57,16 @@
     @media (max-width: 1400px) {
         #toc {
             position: static;
+
+            li {
+                a {
+                    color: var(--fg);
+
+                    &:hover {
+                        background: unset;
+                    }
+                }
+            }
         }
     }
 </style>
@@ -67,17 +81,46 @@
                 return;
             }
 
-            const minLevel = 2;
+            const isMobile = window.matchMedia("(max-width: 1400px)").matches;
+
+            const observer = new IntersectionObserver((entries) => {
+                for (const entry of entries) {
+                    const a = document.querySelector(`#toc li a[href="#${entry.target.id}"]`);
+                    console.log(a, entry.target.id);
+                    if (entry.isIntersecting || scrollY > entry.boundingClientRect.top) {
+                        a.classList.add("active");
+                    } else {
+                        a.classList.remove("active");
+                    }
+                }
+            });
+
             const headings = document.querySelectorAll("h2, h3, h4, h5, h6");
 
+            let lastLevel = 0;
+            /** @type {HTMLUListElement | undefined} */
+            let currList;
+
             for (const heading of headings) {
+                const level = parseInt(heading.tagName.slice(1));
                 const id = heading.id;
                 const li = document.createElement("li");
                 li.id = `toc-${id}`;
-                const level = parseInt(heading.tagName.slice(1)) - minLevel;
-                li.style.paddingInlineStart = `${level * 0.5}rem`;
-                li.innerHTML = `<li><a href="#${id}">${heading.innerHTML}</a></li>`;
-                toc.appendChild(li);
+                li.innerHTML = `<li><a href="#${id}">${heading.innerHTML}</a><ul></ul></li>`;
+
+                if (currList && level > lastLevel) {
+                    currList.appendChild(li);
+                } else {
+                    toc.appendChild(li);
+                }
+
+                currList = li.querySelector("ul");
+
+                if (!isMobile) {
+                    observer.observe(heading);
+                }
+
+                lastLevel = level;
             }
         },
         { once: true }
