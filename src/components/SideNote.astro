@@ -3,7 +3,7 @@
 ---
 
 <span class="sidenote-container">
-    <label class="sidenote-label"></label>
+    <sup class="sidenote-label"></sup>
     <small class="sidenote">
         <slot />
     </small>
@@ -36,6 +36,7 @@
 
     .sidenote {
         --width: 20rem;
+        display: inline;
         float: right;
         clear: both;
         color: var(--g4);
@@ -46,33 +47,25 @@
         width: var(--width);
 
         &::before {
-            content: counter(sidenote) ".";
+            content: "[ " counter(sidenote) " ]";
             position: relative;
-            vertical-align: baseline;
+            inset-block-start: -0.3em;
             font-size: 0.8em;
             font-weight: bold;
+            margin-inline-end: 0.125rem;
         }
     }
 
     /* desktop */
     @media (min-width: 1400px) {
         .sidenote {
-            display: inline;
-            /* --width: 20vw; */
-            /* margin-block-start: 0.5rem; */
-            /* margin-inline-start: calc(-1 * var(--width) - 4vw); */
-            /* margin-inline-start: calc(-1 * var(--width) - 2vw); */
-            /* width: var(--width); */
         }
     }
 
     /* mobile */
     @media (max-width: 1400px) {
-        .sidenote {
+        .sidenote-container {
             display: none;
-            /* width: 100%; */
-            /* margin: 0.5rem 0; */
-            /* padding-inline-start: 0.5rem; */
         }
     }
 </style>
