@@ -43,14 +43,11 @@
     /* desktop */
     @media (min-width: 1400px) {
         #toc {
-            --width: 20rem;
             inset-block-start: 4rem;
-            width: var(--width);
+            width: var(--toc-width);
             position: sticky;
             position: -webkit-sticky;
-            float: inline-start;
-            clear: both;
-            margin-inline-start: calc(-1 * var(--width) - 1vw);
+            align-self: flex-start;
 
             label,
             li a {
@@ -73,13 +70,19 @@
         #toc {
             position: static;
 
-            li {
-                a {
-                    line-height: 1.4;
-                    color: var(--fg);
+            border: 1px solid var(--fg);
+            padding: 1rem;
 
-                    &:hover {
-                        background: unset;
+            ul {
+                li {
+                    a {
+                        line-height: 1.4;
+                        color: var(--fg);
+                        text-decoration: underline dotted;
+
+                        &:hover {
+                            background: unset;
+                        }
                     }
                 }
             }
@@ -92,8 +95,13 @@
         "DOMContentLoaded",
         () => {
             const toc = document.getElementById("toc");
-
             if (!toc) {
+                return;
+            }
+
+            const headings = document.querySelectorAll("h2, h3, h4, h5, h6");
+            if (headings.length === 0) {
+                toc.style.display = "none";
                 return;
             }
 
@@ -109,8 +117,6 @@
                     }
                 }
             });
-
-            const headings = document.querySelectorAll("h2, h3, h4, h5, h6");
 
             const rootUl = document.createElement("ul");
             rootUl.id = "toc-root";

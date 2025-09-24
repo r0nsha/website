@@ -1,4 +1,5 @@
 :root {
+    /* colors */
     --bg: #0a0a0a;
     --g1: #262626;
     --g2: #474747;
@@ -7,6 +8,7 @@
     --fg: #f0f0f0;
     --p: #9d1f1f;
 
+    /* syntax highlighting */
     --modus-gray: #989898;
     --modus-white: #ffffff;
     --modus-green: #88ca9f;
@@ -22,6 +24,9 @@
     --modus-add: #237f3f;
     --modus-bg-remove: #4f111960;
     --modus-remove: #b81a1f;
+
+    /* dimensions */
+    --toc-width: 17rem;
 }
 
 html {

@@ -44,6 +44,11 @@
         () => {
             const sidenotes = document.querySelectorAll(".sidenote-container .sidenote");
 
+            if (sidenotes.length === 0) {
+                document.getElementById("footnotes").style.display = "none";
+                return;
+            }
+
             for (const sidenote of sidenotes) {
                 const id = sidenote.dataset.sidenoteId;
                 const li = document.createElement("li");
