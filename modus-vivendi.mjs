@@ -1,15 +1,15 @@
 const c = {
-    gray: "#989898",
-    white: "#ffffff",
-    green: "#88ca9f",
-    blue: "#2fafff",
-    blueSubtle: "#79a8ff",
-    cyan: "#00d3d0",
-    yellow: "#d0bc00",
-    red: "#ff5f59",
-    orange: "#dfaf7a",
-    purple: "#b6a0ff",
-    pink: "#feacd0",
+    gray: "var(--modus-gray)",
+    white: "var(--modus-white)",
+    green: "var(--modus-green)",
+    blue: "var(--modus-blue)",
+    blueSubtle: "var(--modus-blueSubtle)",
+    cyan: "var(--modus-cyan)",
+    yellow: "var(--modus-yellow)",
+    red: "var(--modus-red)",
+    orange: "var(--modus-orange)",
+    purple: "var(--modus-purple)",
+    pink: "var(--modus-pink)",
 };
 
 export default {

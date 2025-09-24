@@ -5,13 +5,30 @@
     --g3: #7a7a7a;
     --g4: #a0a0a0;
     --fg: #f0f0f0;
-    --p: #9a2549;
+    --p: #9d1f1f;
+
+    --modus-gray: #989898;
+    --modus-white: #ffffff;
+    --modus-green: #88ca9f;
+    --modus-blue: #2fafff;
+    --modus-blueSubtle: #79a8ff;
+    --modus-cyan: #00d3d0;
+    --modus-yellow: #d0bc00;
+    --modus-red: #ff5f59;
+    --modus-orange: #dfaf7a;
+    --modus-purple: #b6a0ff;
+    --modus-pink: #feacd0;
+    --modus-bg-add: #00381f60;
+    --modus-add: #237f3f;
+    --modus-bg-remove: #4f111960;
+    --modus-remove: #b81a1f;
 }
 
 html {
     background: var(--bg);
     color: var(--fg);
     font-family: var(--font-default), system-ui, sans-serif;
+    counter-reset: sidenote;
 }
 
 h1 {
@@ -96,24 +113,24 @@ pre[data-language] {
             line-height: 1.25;
 
             &.add {
-                background: #00381f60;
+                background: var(--modus-bg-add);
 
                 &::before {
                     position: absolute;
                     padding-inline: 0.25rem;
                     content: "+";
-                    color: #237f3f;
+                    color: var(--modus-add);
                 }
             }
 
             &.remove {
-                background: #4f111960;
+                background: var(--modus-bg-remove);
 
                 &::before {
                     position: absolute;
                     padding-inline: 0.25rem;
                     content: "-";
-                    color: #b81a1f;
+                    color: var(--modus-remove);
                 }
             }
         }
