@@ -2,34 +2,41 @@
 
 ---
 
-<ul id="toc"></ul>
+<div id="toc">
+    <label for="toc-root">Table of Contents</label>
+</div>
 
 <style>
     #toc {
-        /* list-style: none; */
-        /* padding: 0; */
-        margin: 0;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
 
-        li {
-            cursor: pointer;
-            color: var(--g4);
+        label {
+            font-weight: bold;
+        }
 
-            &:hover,
-            .active {
-                background: transparent;
-                color: var(--fg);
-            }
+        ul {
+            padding-inline: 1rem;
+            margin: 0;
 
-            a {
-                text-decoration: none;
+            li {
+                cursor: pointer;
                 color: var(--g4);
 
-                &:hover {
+                .active {
                     background: transparent;
                     color: var(--fg);
+                }
+
+                a {
+                    text-decoration: none;
+                    color: var(--g4);
+
+                    &:hover {
+                        background: var(--p);
+                        color: var(--fg);
+                    }
                 }
             }
         }
@@ -47,7 +54,9 @@
             clear: both;
             margin-inline-start: calc(-1 * var(--width) - 1vw);
 
+            label,
             li a {
+                display: inline-flex;
                 font-size: 0.9rem;
             }
         }
@@ -60,6 +69,7 @@
 
             li {
                 a {
+                    line-height: 1.4;
                     color: var(--fg);
 
                     &:hover {
@@ -86,7 +96,6 @@
             const observer = new IntersectionObserver((entries) => {
                 for (const entry of entries) {
                     const a = document.querySelector(`#toc li a[href="#${entry.target.id}"]`);
-                    console.log(a, entry.target.id);
                     if (entry.isIntersecting || scrollY > entry.boundingClientRect.top) {
                         a.classList.add("active");
                     } else {
@@ -97,30 +106,46 @@
 
             const headings = document.querySelectorAll("h2, h3, h4, h5, h6");
 
-            let lastLevel = 0;
-            /** @type {HTMLUListElement | undefined} */
-            let currList;
+            const rootUl = document.createElement("ul");
+            rootUl.id = "toc-root";
+            toc.appendChild(rootUl);
+
+            const stack = [{ level: 1, ul: rootUl }];
 
             for (const heading of headings) {
                 const level = parseInt(heading.tagName.slice(1));
                 const id = heading.id;
+
                 const li = document.createElement("li");
                 li.id = `toc-${id}`;
-                li.innerHTML = `<li><a href="#${id}">${heading.innerHTML}</a><ul></ul></li>`;
 
-                if (currList && level > lastLevel) {
-                    currList.appendChild(li);
+                const a = document.createElement("a");
+                a.href = `#${id}`;
+                a.textContent = heading.innerHTML;
+                li.appendChild(a);
+
+                const stackTop = stack[stack.length - 1];
+
+                if (level > stackTop.level) {
+                    const parentLi = stackTop.ul.lastElementChild;
+                    if (parentLi) {
+                        const newUl = document.createElement("ul");
+                        parentLi.appendChild(newUl);
+                        stack.push({ level, ul: newUl });
+                        stack[stack.length - 1].ul.appendChild(li);
+                    } else {
+                        stackTop.ul.appendChild(li);
+                    }
                 } else {
-                    toc.appendChild(li);
+                    while (stack.length > 1 && level < stack[stack.length - 1].level) {
+                        stack.pop();
+                    }
+                    stack[stack.length - 1].ul.appendChild(li);
                 }
-
-                currList = li.querySelector("ul");
 
                 if (!isMobile) {
                     observer.observe(heading);
                 }
-
-                lastLevel = level;
             }
         },
         { once: true }
