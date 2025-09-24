@@ -1,5 +1,6 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Toc from "../../components/Toc.astro";
 import Footnotes from "../../components/Footnotes.astro";
 import { getCollection, render } from "astro:content";
 
@@ -33,6 +34,7 @@ const { Content } = await render(post);
                 }
             </ul>
         </section>
+        <Toc />
         <Content />
         <Footnotes />
     </article>

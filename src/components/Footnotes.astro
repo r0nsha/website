@@ -46,10 +46,10 @@
 
             for (const sidenote of sidenotes) {
                 const id = sidenote.dataset.sidenoteId;
-                const listItem = document.createElement("li");
-                listItem.id = `footnote-${id}`;
-                listItem.innerHTML = `${sidenote.innerHTML}<a class="backlink" href="#sidenote-${id}">↩︎</a>`;
-                document.getElementById("footnote-list").appendChild(listItem);
+                const li = document.createElement("li");
+                li.id = `footnote-${id}`;
+                li.innerHTML = `${sidenote.innerHTML}<a class="backlink" href="#sidenote-${id}">↩︎</a>`;
+                document.getElementById("footnote-list").appendChild(li);
             }
         },
         { once: true }

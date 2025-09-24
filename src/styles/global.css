@@ -31,8 +31,16 @@ html {
     counter-reset: sidenote;
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-header), system-ui, sans-serif;
+}
+
+h1 {
     margin-inline-end: 1rem;
     margin-block-end: 0.125em;
 
@@ -44,15 +52,41 @@ h1 {
     }
 }
 
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font-header), system-ui, sans-serif;
-
+h2 {
     &::before {
         content: "#";
+        margin-inline-end: 0.5rem;
+        color: var(--p);
+    }
+}
+
+h3 {
+    &::before {
+        content: "##";
+        margin-inline-end: 0.5rem;
+        color: var(--p);
+    }
+}
+
+h4 {
+    &::before {
+        content: "###";
+        margin-inline-end: 0.5rem;
+        color: var(--p);
+    }
+}
+
+h5 {
+    &::before {
+        content: "####";
+        margin-inline-end: 0.5rem;
+        color: var(--p);
+    }
+}
+
+h6 {
+    &::before {
+        content: "#####";
         margin-inline-end: 0.5rem;
         color: var(--p);
     }

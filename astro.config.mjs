@@ -45,6 +45,7 @@ export default defineConfig({
     },
     integrations: [icon(), mdx()],
     markdown: {
+        remarkPlugins: [],
         shikiConfig: {
             theme: modusVivendi,
             wrap: false,
@@ -96,4 +97,3 @@ export default defineConfig({
         ],
     },
 });
-

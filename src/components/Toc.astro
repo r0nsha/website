@@ -1,0 +1,85 @@
+---
+
+---
+
+<ul id="toc"></ul>
+
+<style>
+    #toc {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        li {
+            cursor: pointer;
+            line-height: 1.1;
+
+            &:hover {
+                background: transparent;
+                color: var(--fg);
+            }
+
+            a {
+                text-decoration: none;
+                color: var(--g4);
+
+                &:hover {
+                    background: transparent;
+                    color: var(--fg);
+                }
+            }
+        }
+    }
+
+    /* desktop */
+    @media (min-width: 1400px) {
+        #toc {
+            --width: 20rem;
+            position: absolute;
+            inset-inline-start: calc(-1 * var(--width) - 1vw);
+            inset-block-start: 12.5rem;
+            width: var(--width);
+
+            li a {
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    /* mobile */
+    @media (max-width: 1400px) {
+        #toc {
+            position: static;
+        }
+    }
+</style>
+
+<script is:inline>
+    document.addEventListener(
+        "DOMContentLoaded",
+        () => {
+            const toc = document.getElementById("toc");
+
+            if (!toc) {
+                return;
+            }
+
+            const minLevel = 2;
+            const headings = document.querySelectorAll("h2, h3, h4, h5, h6");
+
+            for (const heading of headings) {
+                const id = heading.id;
+                const li = document.createElement("li");
+                li.id = `toc-${id}`;
+                const level = parseInt(heading.tagName.slice(1)) - minLevel;
+                li.style.paddingInlineStart = `${level * 0.5}rem`;
+                li.innerHTML = `<li><a href="#${id}">${heading.innerHTML}</a></li>`;
+                toc.appendChild(li);
+            }
+        },
+        { once: true }
+    );
+</script>
