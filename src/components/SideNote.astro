@@ -2,75 +2,77 @@
 
 ---
 
-<span class="sidenote-label">
+<span class="sidenote-container">
+    <label class="sidenote-label"></label>
     <small class="sidenote">
         <slot />
     </small>
 </span>
 
 <style>
+    .sidenote-container:hover {
+        .sidenote-label {
+            background: var(--g1);
+            color: var(--fg);
+        }
+
+        .sidenote {
+            background: var(--g1);
+            color: var(--fg);
+        }
+    }
+
     .sidenote-label {
         counter-increment: sidenote;
+        color: var(--g4);
 
         &::after {
-            content: counter(sidenote);
+            content: "[ " counter(sidenote) " ]";
             position: relative;
-            vertical-align: baseline;
-            font-size: 0.9rem;
+            font-size: 0.6rem;
             font-weight: bold;
         }
     }
+
+    .sidenote {
+        --width: 20rem;
+        float: right;
+        clear: both;
+        color: var(--g4);
+        font-size: 0.8rem;
+        margin-block-end: 1.5rem;
+        margin-inline-end: calc(-1 * var(--width) - 2vw);
+        text-indent: 0;
+        width: var(--width);
+
+        &::before {
+            content: counter(sidenote) ".";
+            position: relative;
+            vertical-align: baseline;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+    }
+
+    /* desktop */
+    @media (min-width: 1400px) {
+        .sidenote {
+            display: inline;
+            /* --width: 20vw; */
+            /* margin-block-start: 0.5rem; */
+            /* margin-inline-start: calc(-1 * var(--width) - 4vw); */
+            /* margin-inline-start: calc(-1 * var(--width) - 2vw); */
+            /* width: var(--width); */
+        }
+    }
+
+    /* mobile */
+    @media (max-width: 1400px) {
+        .sidenote {
+            display: none;
+            /* width: 100%; */
+            /* margin: 0.5rem 0; */
+            /* padding-inline-start: 0.5rem; */
+        }
+    }
 </style>
-
-<!-- --- -->
-<!-- import { numberToColor } from "../lib/color"; -->
-
-<!-- interface Props { -->
-<!--     n: number; -->
-<!--     link?: boolean; -->
-<!-- } -->
-
-<!-- const { n, link = true } = Astro.props; -->
-<!-- const color = numberToColor(n); -->
-<!-- const style = `background: ${color}40; color: ${color}ff; border-color: ${color}ff;`; -->
-<!-- --- -->
-
-<!-- { -->
-<!--     link ? ( -->
-<!--         <a href={`#sidenote-${n}`} id={`sidenote-${n}`} aria-describedby="sidenote" style={style}> -->
-<!--             {n} -->
-<!--         </a> -->
-<!--     ) : ( -->
-<!--         <span style={style}>{n}</span> -->
-<!--     ) -->
-<!-- } -->
-
-<!-- <style> -->
-<!--     a, -->
-<!--     span { -->
-<!--         display: inline; -->
-<!--         text-align: center; -->
-<!--         text-decoration: none; -->
-<!--         font-size: 0.75rem; -->
-<!--         font-weight: bold; -->
-<!--         cursor: pointer; -->
-<!--         padding: 0rem 0.375rem; -->
-<!--         flex-shrink: 0; -->
-<!--         border: 1px solid var(--fg); -->
-<!--         filter: brightness(1); -->
-<!--         transition: filter 0.1s ease; -->
-
-<!--         &:hover { -->
-<!--             filter: brightness(1.2); -->
-<!--         } -->
-<!--     } -->
-
-<!--     a { -->
-<!--         margin: 0 0.25rem; -->
-<!--     } -->
-
-<!--     span { -->
-<!--         font-size: 0.75rem; -->
-<!--         padding-block: 0.125rem; -->
-<!--     } -->
-<!-- </style> -->
