@@ -1,6 +1,5 @@
 ---
 import Base from "../../layouts/Base.astro";
-import Toc from "../../components/Toc.astro";
 import Footnotes from "../../components/Footnotes.astro";
 import { getCollection, render } from "astro:content";
 
@@ -18,41 +17,28 @@ const { Content } = await render(post);
 
 <Base title={post.data.title}>
     <article>
-        <Toc />
-        <div class="content">
-            <h1>{post.data.title}</h1>
-            <section class="meta">
-                <span>
-                    Posted on <time datetime={post.data.pubDate.toISOString()}>2022-07-01</time>
-                </span>
-                <span class="sep">▪</span>
-                <ul>
-                    {
-                        post.data.tags.map((tag) => (
-                            <li>
-                                <a href="/">#{tag}</a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </section>
-            <Content />
-            <Footnotes />
-        </div>
+        <h1>{post.data.title}</h1>
+        <section class="meta">
+            <span>
+                Posted on <time datetime={post.data.pubDate.toISOString()}>2022-07-01</time>
+            </span>
+            <span class="sep">▪</span>
+            <ul>
+                {
+                    post.data.tags.map((tag) => (
+                        <li>
+                            <a href="/">#{tag}</a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </section>
+        <Content />
+        <Footnotes />
     </article>
 </Base>
 
 <style>
-    article {
-        width: calc(100% + var(--toc-width));
-        display: flex;
-    }
-
-    div.content {
-        flex: 1;
-        max-width: 720px;
-    }
-
     section.meta {
         color: var(--g4);
         margin-block-end: 2rem;
@@ -87,21 +73,6 @@ const { Content } = await render(post);
     @media (max-width: 720px) {
         section.meta {
             margin-block-end: 1.5rem;
-        }
-    }
-
-    @media (min-width: 1400px) {
-        article {
-            #toc {
-                margin-inline-start: calc(-1 * var(--toc-width) - 1vw);
-            }
-        }
-    }
-
-    @media (max-width: 1400px) {
-        article {
-            display: block;
-            width: 100%;
         }
     }
 </style>
