@@ -9,10 +9,13 @@ import { Icon } from "astro-icon/components";
 
 interface Props {
     title?: string;
+    footer?: boolean;
 }
 
-const title = "Ron Shavit";
-const pageTitle = Astro.props.title ? `${Astro.props.title} - ${title}` : title;
+const { title, footer = true } = Astro.props;
+
+const name = "Ron Shavit";
+const pageTitle = title ? `${title} - ${name}` : name;
 ---
 
 <html lang="en">
@@ -29,7 +32,7 @@ const pageTitle = Astro.props.title ? `${Astro.props.title} - ${title}` : title;
     <body>
         <header>
             <div class="header-left">
-                <a id="logo" href="/">{title}</a>
+                <a id="logo" href="/">{name}</a>
                 <div class="header-links">
                     <a href="https://www.github.com/r0nsha" target="_blank" title="GitHub">
                         <Icon name="github" size="1.25rem" />
@@ -49,14 +52,18 @@ const pageTitle = Astro.props.title ? `${Astro.props.title} - ${title}` : title;
             </nav>
         </header>
         <slot />
-        <footer>
-            <span>
-                Contact me at <a href="mailto:me@ronshavit.com">me@ronshavit.com</a>
-            </span>
-            <a href="https://github.com/r0nsha/website" target="_blank" class="subtle"
-                >Source code</a
-            >
-        </footer>
+        {
+            footer && (
+                <footer>
+                    <span>
+                        Contact me at <a href="mailto:me@ronshavit.com">me@ronshavit.com</a>
+                    </span>
+                    <a href="https://github.com/r0nsha/website" target="_blank" class="subtle">
+                        Source code
+                    </a>
+                </footer>
+            )
+        }
     </body>
 </html>
 
