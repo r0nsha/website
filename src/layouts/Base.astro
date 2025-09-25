@@ -23,6 +23,12 @@ const pageTitle = title ? `${title} - ${name}` : name;
     <head>
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title={name}
+            href={new URL("rss.xml", Astro.site)}
+        />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
         <Font cssVariable="--font-default" preload />
@@ -44,6 +50,9 @@ const pageTitle = title ? `${title} - ${name}` : name;
                         title="LinkedIn"
                     >
                         <Icon name="linkedin" size="1.25rem" />
+                    </a>
+                    <a href={new URL("rss.xml", Astro.site)} title="RSS">
+                        <Icon name="rss" size="1.25rem" />
                     </a>
                 </div>
             </div>
