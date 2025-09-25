@@ -1,0 +1,71 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<button id="theme-toggle" title="Toggle theme">
+    <Icon id="light" name="sun" size="1rem" />
+    <Icon id="dark" name="moon" size="1rem" />
+</button>
+
+<style>
+    #theme-toggle {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        color: var(--g4);
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--fg);
+        }
+
+        & > #light {
+            display: none;
+        }
+
+        & > #dark {
+            display: none;
+        }
+    }
+</style>
+
+<script is:inline>
+    document.addEventListener(
+        "DOMContentLoaded",
+        () => {
+            const toggleButton = document.getElementById("theme-toggle");
+            const lightIcon = toggleButton.querySelector("#light");
+            const darkIcon = toggleButton.querySelector("#dark");
+
+            /**
+             * @param {"light" | "dark"} theme
+             */
+            const setTheme = (theme) => {
+                document.documentElement.setAttribute("data-theme", theme);
+                lightIcon.style.display = theme === "light" ? "inline" : "none";
+                darkIcon.style.display = theme === "dark" ? "inline" : "none";
+            };
+
+            // Get saved theme or prefer system setting
+            let currTheme = localStorage.getItem("theme");
+            if (!currTheme) {
+                currTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : "light";
+            }
+            setTheme(currTheme);
+
+            toggleButton.addEventListener("click", () => {
+                const newTheme =
+                    document.documentElement.getAttribute("data-theme") === "dark"
+                        ? "light"
+                        : "dark";
+                localStorage.setItem("theme", newTheme);
+                setTheme(newTheme);
+            });
+        },
+        { once: true }
+    );
+</script>

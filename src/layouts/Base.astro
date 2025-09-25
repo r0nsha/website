@@ -3,6 +3,7 @@ import "../styles/normalize.css";
 import "../styles/global.css";
 
 import NavLink from "../components/NavLink.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
 
 import { Font } from "astro:assets";
 import { Icon } from "astro-icon/components";
@@ -49,6 +50,7 @@ const pageTitle = title ? `${title} - ${name}` : name;
             <nav>
                 <NavLink href="/">/about</NavLink>
                 <NavLink href="/posts">/posts</NavLink>
+                <ThemeToggle />
             </nav>
         </header>
         <slot />

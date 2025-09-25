@@ -1,4 +1,36 @@
 :root {
+    /* dimensions */
+    --toc-width: 17rem;
+}
+:root[data-theme="light"] {
+    /* colors */
+    --bg: #f0f0f0;
+    --g1: #bbbbbb;
+    --g2: #949494;
+    --g3: #5f5f5f;
+    --g4: #3c3c3c;
+    --fg: #0a0a0a;
+    --p: #f16363;
+
+    /* syntax highlighting */
+    --modus-gray: #595959;
+    --modus-white: #000000;
+    --modus-green: #2a5045;
+    --modus-blue: #0031a9;
+    --modus-blueSubtle: #354fcf;
+    --modus-cyan: #005e8b;
+    --modus-yellow: #6f5500;
+    --modus-red: #a60000;
+    --modus-orange: #7a4f2f;
+    --modus-purple: #531ab6;
+    --modus-pink: #721045;
+    --modus-bg-add: #c1f2d1;
+    --modus-add: #005000;
+    --modus-bg-remove: #ffd8d5;
+    --modus-remove: #8f1313;
+}
+
+:root[data-theme="dark"] {
     /* colors */
     --bg: #0a0a0a;
     --g1: #262626;
@@ -20,13 +52,10 @@
     --modus-orange: #dfaf7a;
     --modus-purple: #b6a0ff;
     --modus-pink: #feacd0;
-    --modus-bg-add: #00381f60;
+    --modus-bg-add: #00381f;
     --modus-add: #237f3f;
-    --modus-bg-remove: #4f111960;
+    --modus-bg-remove: #4f1119;
     --modus-remove: #b81a1f;
-
-    /* dimensions */
-    --toc-width: 17rem;
 }
 
 html {
@@ -200,7 +229,7 @@ img {
     box-shadow: 0 0 0 1px var(--fg);
     object-fit: cover;
     filter: grayscale(100%) brightness(0.85);
-    transition: filter 0.1s ease-in-out;
+    transition: filter 0.1s ease;
 
     &:hover,
     &:active {
