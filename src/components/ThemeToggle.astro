@@ -9,24 +9,30 @@ import { Icon } from "astro-icon/components";
 
 <style>
     #theme-toggle {
+        width: 1.75rem;
+        height: 1.75rem;
         display: inline-flex;
         justify-content: center;
         align-items: center;
         background: transparent;
         color: var(--g4);
         border: none;
+        border-radius: 50%;
         cursor: pointer;
 
         &:hover {
+            background: var(--g1);
             color: var(--fg);
         }
 
         & > #light {
             display: none;
+            flex-shrink: 0;
         }
 
         & > #dark {
             display: none;
+            flex-shrink: 0;
         }
     }
 </style>
