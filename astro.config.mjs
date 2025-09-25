@@ -40,6 +40,7 @@ export const transformerCopyButton = () => ({
 });
 
 export default defineConfig({
+    site: "https://ronshavit.com",
     vite: {
         plugins: [],
     },
