@@ -23,7 +23,7 @@ import meAndGin from "../assets/imgs/me_gin.jpg";
             where I blabber about my unsolicited opinions in Hebrew.
         </p>
     </section>
-    <h3>Recent posts</h3>
+    <h2>Recent posts</h2>
     <PostList limit={3} />
 </Base>
 
@@ -33,6 +33,7 @@ import meAndGin from "../assets/imgs/me_gin.jpg";
         grid-template-rows: repeat(2, auto) 1fr;
         display: grid;
         gap: 1rem 1.5rem;
+        margin-block-end: 2rem;
 
         & > img {
             grid-column-start: 1;

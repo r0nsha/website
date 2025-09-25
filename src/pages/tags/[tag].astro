@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import PostLink from "../../components/PostLink.astro";
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+
+export async function getStaticPaths() {
+    const posts = await getCollection("posts");
+    const tags = [...new Set<string>(posts.flatMap((p) => p.data.tags))];
+
+    return tags.map((tag) => ({
+        params: { tag },
+        props: { posts: posts.filter((p) => p.data.tags.includes(tag)) },
+    }));
+}
+---
+
+<Base title="Tags">
+    <h1>Tag: #{tag}</h1>
+    <ul>
+        {posts.map((post) => <PostLink post={post} />)}
+    </ul>
+</Base>
+
+<style>
+    ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+</style>

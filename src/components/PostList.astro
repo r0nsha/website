@@ -1,7 +1,8 @@
 ---
 import { getCollection } from "astro:content";
+import PostLink from "./PostLink.astro";
 
-const { hash = false, limit = null } = Astro.props;
+const { limit = null } = Astro.props;
 let posts = await getCollection("posts");
 posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 
@@ -10,23 +11,8 @@ if (limit != null) {
 }
 ---
 
-<ul class:list={hash && "hash"}>
-    {
-        posts.map((post) => (
-            <li>
-                <time datetime={post.data.pubDate.toISOString()}>
-                    {post.data.pubDate.toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                    })}
-                </time>
-                <span>
-                    <a href={`/posts/${post.id}`}>{post.data.title}</a>
-                </span>
-            </li>
-        ))
-    }
+<ul>
+    {posts.map((post) => <PostLink post={post} />)}
 </ul>
 
 <style>
@@ -36,28 +22,5 @@ if (limit != null) {
         gap: 0.5rem;
         list-style: none;
         padding: 0;
-
-        & > li {
-            & > time {
-                display: inline-block;
-                width: 6.5rem;
-                color: var(--g3);
-            }
-
-            & > span {
-                & > a {
-                    text-decoration: none;
-                    font-weight: bold;
-                }
-            }
-        }
-
-        &.hash {
-            & > li > span::before {
-                content: "#";
-                margin-inline-end: 0.25rem;
-                color: var(--p);
-            }
-        }
     }
 </style>
