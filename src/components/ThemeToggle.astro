@@ -43,8 +43,8 @@ import { Icon } from "astro-icon/components";
     const darkIcon = toggleButton.querySelector("#dark");
 
     /**
-    * @param {"light" | "dark"} theme
-    */
+     * @param {"light" | "dark"} theme
+     */
     const setTheme = (theme) => {
         document.documentElement.setAttribute("data-theme", theme);
         lightIcon.style.display = theme === "light" ? "inline" : "none";
@@ -53,17 +53,13 @@ import { Icon } from "astro-icon/components";
 
     let currTheme = localStorage.getItem("theme");
     if (!currTheme) {
-        currTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
+        currTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
     setTheme(currTheme);
 
     toggleButton.addEventListener("click", () => {
         const newTheme =
-            document.documentElement.getAttribute("data-theme") === "dark"
-                ? "light"
-                : "dark";
+            document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
         localStorage.setItem("theme", newTheme);
         setTheme(newTheme);
     });

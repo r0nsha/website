@@ -1,0 +1,104 @@
+---
+import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+import NavLink from "@/components/NavLink.astro";
+import ThemeToggle from "@/components/ThemeToggle.astro";
+import { name } from "@/lib/consts";
+
+const posts = await getCollection("posts");
+const hasPosts = posts.length > 0;
+---
+
+<header>
+    <div class="header-left">
+        <a id="logo" href="/">{name}</a>
+        <div class="header-links">
+            <a href="https://www.github.com/r0nsha" target="_blank" title="GitHub">
+                <Icon name="github" size="1.25rem" />
+            </a>
+            <a
+                href="https://www.linkedin.com/in/ron-shavit-b3b7074b/"
+                target="_blank"
+                title="LinkedIn"
+            >
+                <Icon name="linkedin" size="1.25rem" />
+            </a>
+            <a href={new URL("rss.xml", Astro.site)} title="RSS">
+                <Icon name="rss" size="1.25rem" />
+            </a>
+        </div>
+    </div>
+    <nav>
+        {
+            hasPosts && (
+                <>
+                    <NavLink href="/">/about</NavLink>
+                    <NavLink href="/posts">/posts</NavLink>
+                    <NavLink href="/tags">/tags</NavLink>
+                </>
+            )
+        }
+        <ThemeToggle />
+    </nav>
+</header>
+
+<style>
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-block: 1rem 3rem;
+
+        & .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            & #logo {
+                font-family: var(--font-header);
+                font-size: 1.5rem;
+                font-weight: bold;
+                text-decoration: none;
+            }
+
+            & .header-links {
+                display: flex;
+                align-items: center;
+
+                & > a {
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    color: var(--g3);
+                    padding: 0.25rem;
+
+                    &:hover {
+                        background: transparent;
+                        color: var(--p);
+                    }
+                }
+            }
+        }
+
+        & > nav {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 720px) {
+        header {
+            margin-block: 0.5rem 2.5rem;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+            margin-block: 1rem 1.5rem;
+        }
+    }
+</style>

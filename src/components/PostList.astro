@@ -3,16 +3,16 @@ import { getCollection } from "astro:content";
 import PostLink from "./PostLink.astro";
 
 const { limit = null } = Astro.props;
-let posts = await getCollection("posts");
+const posts = await getCollection("posts");
 posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 
 if (limit != null) {
-    posts = posts.slice(0, limit);
+    posts.splice(limit);
 }
 ---
 
 <ul>
-    {posts.length > 0 ? <slot /> : <p>No posts yet :(</p>}
+    {posts.length > 0 && <slot />}
     {posts.map((post) => <PostLink post={post} />)}
 </ul>
 

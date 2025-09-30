@@ -1,0 +1,30 @@
+---
+
+---
+
+<footer>
+    <span>
+        Contact me at <a href="mailto:me@ronshavit.com">me@ronshavit.com</a>
+    </span>
+    <a href="https://github.com/r0nsha/website" target="_blank" class="subtle"> Source code </a>
+</footer>
+
+<style>
+    footer {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+        border-block-start: 2px dashed var(--g2);
+        margin-block: 2rem;
+        padding-block-start: 1rem;
+    }
+
+    @media (max-width: 720px) {
+        footer {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+    }
+</style>

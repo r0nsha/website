@@ -1,30 +1,30 @@
 name: Deploy
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-      - name: Install dependencies
-        run: pnpm install
-      - name: Build
-        run: pnpm build
-      - name: Deploy
-        run: |
-          echo "${{ secrets.SSH_KEY }}" > deploy_key
-          chmod 600 ./deploy_key
-          rsync -chrlvzi --delete \
-            -e 'ssh -i ./deploy_key -p 22 -o StrictHostKeyChecking=no' \
-            dist/ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/site
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "22"
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 10
+            - name: Install dependencies
+              run: pnpm install
+            - name: Build
+              run: pnpm build
+            - name: Deploy
+              run: |
+                  echo "${{ secrets.SSH_KEY }}" > deploy_key
+                  chmod 600 ./deploy_key
+                  rsync -chrlvzi --delete \
+                    -e 'ssh -i ./deploy_key -p 22 -o StrictHostKeyChecking=no' \
+                    dist/ ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/site

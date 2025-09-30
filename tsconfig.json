@@ -5,7 +5,7 @@
     "compilerOptions": {
         "plugins": [{ "name": "@astrojs/ts-plugin" }],
         "paths": {
-            "@/*": ["src/*"],
+            "@/*": ["src/*"]
         }
     }
 }

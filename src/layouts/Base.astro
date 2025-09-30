@@ -2,11 +2,9 @@
 import "@/styles/normalize.css";
 import "@/styles/global.css";
 
-import NavLink from "@/components/NavLink.astro";
-import ThemeToggle from "@/components/ThemeToggle.astro";
-
-import { Font } from "astro:assets";
-import { Icon } from "astro-icon/components";
+import Head from "@/components/Head.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
 
 interface Props {
     title?: string;
@@ -14,159 +12,13 @@ interface Props {
 }
 
 const { title, footer = true } = Astro.props;
-
-const name = "Ron Shavit";
-const pageTitle = title ? `${title} - ${name}` : name;
 ---
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link
-            rel="alternate"
-            type="application/rss+xml"
-            title={name}
-            href={new URL("rss.xml", Astro.site)}
-        />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-        <Font cssVariable="--font-default" preload />
-        <Font cssVariable="--font-header" preload />
-        <Font cssVariable="--font-mono" />
-    </head>
+    <Head title={title} />
     <body>
-        <header>
-            <div class="header-left">
-                <a id="logo" href="/">{name}</a>
-                <div class="header-links">
-                    <a href="https://www.github.com/r0nsha" target="_blank" title="GitHub">
-                        <Icon name="github" size="1.25rem" />
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/in/ron-shavit-b3b7074b/"
-                        target="_blank"
-                        title="LinkedIn"
-                    >
-                        <Icon name="linkedin" size="1.25rem" />
-                    </a>
-                    <a href={new URL("rss.xml", Astro.site)} title="RSS">
-                        <Icon name="rss" size="1.25rem" />
-                    </a>
-                </div>
-            </div>
-            <nav>
-                <NavLink href="/">/about</NavLink>
-                <NavLink href="/posts">/posts</NavLink>
-                <NavLink href="/tags">/tags</NavLink>
-                <ThemeToggle />
-            </nav>
-        </header>
+        <Header />
         <slot />
-        {
-            footer && (
-                <footer>
-                    <span>
-                        Contact me at <a href="mailto:me@ronshavit.com">me@ronshavit.com</a>
-                    </span>
-                    <a href="https://github.com/r0nsha/website" target="_blank" class="subtle">
-                        Source code
-                    </a>
-                </footer>
-            )
-        }
+        {footer && <Footer />}
     </body>
 </html>
-
-<style>
-    :root {
-        body {
-            position: relative;
-            max-width: 720px;
-            padding: 1rem;
-            margin: 0 auto;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-block: 1rem 3rem;
-
-            & .header-left {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-
-                & #logo {
-                    font-family: var(--font-header);
-                    font-size: 1.5rem;
-                    font-weight: bold;
-                    text-decoration: none;
-                }
-
-                & .header-links {
-                    display: flex;
-                    align-items: center;
-
-                    & > a {
-                        display: inline-flex;
-                        justify-content: center;
-                        align-items: center;
-                        text-decoration: none;
-                        color: var(--g3);
-                        padding: 0.25rem;
-
-                        &:hover {
-                            background: transparent;
-                            color: var(--p);
-                        }
-                    }
-                }
-            }
-
-            & > nav {
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                font-size: 1rem;
-            }
-        }
-
-        footer {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-            border-block-start: 2px dashed var(--g2);
-            margin-block: 2rem;
-            padding-block-start: 1rem;
-        }
-
-        @media (max-width: 720px) {
-            body {
-                width: auto;
-                max-width: none;
-                padding: 1.25rem;
-                margin: 0;
-            }
-
-            header {
-                margin-block: 0.5rem 2.5rem;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-                margin-block: 1rem 1.5rem;
-            }
-
-            footer {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-        }
-    }
-</style>
