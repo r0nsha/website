@@ -1,16 +1,17 @@
 ---
 import { getCollection } from "astro:content";
-import Base from "../layouts/Base.astro";
+import Base from "@/layouts/Base.astro";
 
 const posts = await getCollection("posts");
 const tags = new Map<string, number>();
 
 for (const post of posts) {
     for (const tag of post.data.tags) {
-        if (!tags.has(tag)) {
-            tags.set(tag, 1);
+        const count = tags.get(tag);
+        if (count !== undefined) {
+            tags.set(tag, count + 1);
         } else {
-            tags.set(tag, tags.get(tag) + 1);
+            tags.set(tag, 1);
         }
     }
 }
