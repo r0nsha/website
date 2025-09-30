@@ -9,6 +9,7 @@
 
 <style>
     #footnotes {
+        display: none;
         border: 1px solid var(--fg);
         padding: 1rem;
 
@@ -49,12 +50,15 @@
                 return;
             }
 
+            document.getElementById("footnotes").style.display = "block";
+            const footnoteList = document.getElementById("footnote-list");
+
             for (const sidenote of sidenotes) {
                 const id = sidenote.dataset.sidenoteId;
                 const li = document.createElement("li");
                 li.id = `footnote-${id}`;
                 li.innerHTML = `${sidenote.innerHTML}<a class="backlink" href="#sidenote-${id}">↩︎</a>`;
-                document.getElementById("footnote-list").appendChild(li);
+                footnoteList.appendChild(li);
             }
         },
         { once: true }
