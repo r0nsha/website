@@ -1,11 +1,10 @@
 ---
-import { getCollection } from "astro:content";
 import PostLink from "./PostLink.astro";
+import { getPosts } from "@/lib/collections";
 
 const { limit = null } = Astro.props;
-const posts = await getCollection("posts");
-posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 
+const posts = await getPosts();
 if (limit != null) {
     posts.splice(limit);
 }

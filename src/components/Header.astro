@@ -1,12 +1,12 @@
 ---
-import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
 
 import NavLink from "@/components/NavLink.astro";
 import ThemeToggle from "@/components/ThemeToggle.astro";
 import { name } from "@/lib/consts";
+import { getPosts } from "@/lib/collections";
 
-const posts = await getCollection("posts");
+const posts = await getPosts();
 const hasPosts = posts.length > 0;
 ---
 

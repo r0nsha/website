@@ -1,8 +1,8 @@
 import rss from "@astrojs/rss";
-import { getCollection } from "astro:content";
+import { getPosts } from "@/lib/collections";
 
 export async function GET(context) {
-    const posts = await getCollection("posts");
+    const posts = await getPosts();
     return rss({
         title: "Ron Shavit",
         description: "Ron's half-baked ideas and opinions",
