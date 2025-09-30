@@ -12,7 +12,7 @@ if (limit != null) {
 ---
 
 <ul>
-    {posts.length > 0 && <slot />}
+    {posts.length > 0 ? <slot /> : <p>No posts yet :(</p>}
     {posts.map((post) => <PostLink post={post} />)}
 </ul>
 
