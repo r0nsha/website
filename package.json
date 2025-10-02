@@ -8,7 +8,7 @@
         "preview": "astro preview",
         "astro": "astro",
         "fmt": "prettier --write .",
-        "ssh": "scripts/ssh",
+        "ssh": "ssh website",
         "sync": "scripts/sync"
     },
     "dependencies": {
