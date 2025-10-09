@@ -18,6 +18,8 @@ const hasHaiku = Astro.slots.has("haiku");
 <style>
     .container {
         display: flex;
+        justify-content: center;
+        align-items: center;
         gap: 1rem;
 
         p {
@@ -30,23 +32,16 @@ const hasHaiku = Astro.slots.has("haiku");
     }
 
     .haiku {
+        height: min-content;
         padding-block: 1rem;
         display: flex;
         justify-content: center;
         gap: 0.25rem;
         font-family: var(--font-mono);
-        font-size: 1.25rem;
+        font-size: 1.15rem;
         font-weight: bold;
         color: var(--g4);
         white-space: pre;
-
-        p {
-            margin: 0;
-
-            &:empty {
-                display: none;
-            }
-        }
     }
 
     .quote {

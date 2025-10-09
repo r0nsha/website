@@ -1,10 +1,14 @@
 import { glob } from "astro/loaders";
 import { z, defineCollection } from "astro:content";
 
+const kebabCaseString = z
+    .string()
+    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, { message: "Must be in kebab-case" });
+
 const schema = z.object({
     title: z.string(),
     pubDate: z.coerce.date(),
-    tags: z.array(z.string()),
+    tags: z.array(kebabCaseString),
     draft: z.boolean().optional(),
 });
 

@@ -2,6 +2,7 @@
     /* dimensions */
     --toc-width: 17rem;
 }
+
 :root[data-theme="light"] {
     /* colors */
     --bg: #f0f0f0;
@@ -63,6 +64,7 @@ html {
     color: var(--fg);
     font-family: var(--font-default), system-ui, sans-serif;
     counter-reset: sidenote;
+    font-size: 1.15em;
 }
 
 h1,
@@ -229,51 +231,10 @@ ul {
     list-style: square;
 }
 
-/* footnotes */
-sup a[aria-describedby="footnote-label"] {
-    color: var(--p);
-    font-weight: bold;
-    text-decoration: none;
-
-    &:hover {
-        background: transparent;
-        text-decoration: underline;
-    }
-}
-
-section.footnotes {
-    background: var(--bg);
-    border: 1px solid var(--fg);
-    padding: 1rem;
-    margin-block: 2rem;
-
-    h2 {
-        font-size: 1.25rem;
-        margin: 0;
-        color: var(--p);
-
-        &::before {
-            content: "";
-            margin: 0;
-        }
-    }
-
-    ol {
-        padding-inline: 1rem;
-
-        li p {
-            margin-block: 1rem;
-
-            a[data-footnote-backref] {
-                color: var(--p);
-                font-weight: bold;
-                text-decoration: none;
-                cursor: pointer;
-
-                &:hover {
-                    color: var(--fg);
-                }
-            }
-        }
-    }
+blockquote {
+    padding-inline-start: 0.5rem;
+    margin: 1rem 0;
+    color: var(--g4);
+    font-style: italic;
+    text-align: justify;
 }
