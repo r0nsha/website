@@ -66,7 +66,7 @@ export default defineConfig({
             {
                 provider: fontProviders.bunny(),
                 name: "Space Grotesk",
-                cssVariable: "--font-header",
+                cssVariable: "--font-heading",
             },
             {
                 provider: "local",

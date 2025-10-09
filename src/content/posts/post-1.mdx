@@ -6,8 +6,21 @@ draft: true
 ---
 
 import Sidenote from "@/components/Sidenote.astro";
+import Haiku from "@/components/Haiku.astro";
 
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
+<Haiku>
+<p slot="text">
+    Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build
+    a new website.
+</p>
+<p slot="haiku">
+
+Ancient static blog
+Serving bits at light-speed pace
+Never complecting<Sidenote id="complecting">See one of Rich Hickey's <a href="https://www.youtube.com/watch?v=SxdOUGdseq4">talks</a>, it's pure gold.</Sidenote>
+
+</p>
+</Haiku>
 
 ## What I've accomplished
 

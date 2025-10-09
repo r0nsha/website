@@ -1,0 +1,65 @@
+---
+
+---
+
+<section class="container">
+    <slot name="text" />
+    <section class="haiku">
+        <span class="quote">“</span>
+        <slot name="haiku" />
+        <span class="quote">”</span>
+    </section>
+</section>
+
+<style>
+    .container {
+        display: flex;
+        gap: 1rem;
+
+        p {
+            margin: 0;
+
+            &:empty {
+                display: none;
+            }
+        }
+    }
+
+    .haiku {
+        padding-block: 1rem;
+        display: flex;
+        justify-content: center;
+        gap: 0.25rem;
+        font-family: var(--font-mono);
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: var(--g4);
+        white-space: pre;
+
+        p {
+            margin: 0;
+
+            &:empty {
+                display: none;
+            }
+        }
+    }
+
+    .quote {
+        content: "”";
+        font-size: 2rem;
+        color: var(--g3);
+
+        &:last-child {
+            transform: translateY(1rem);
+            align-self: flex-end;
+        }
+    }
+
+    @media (max-width: 720px) {
+        .container {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
+</style>

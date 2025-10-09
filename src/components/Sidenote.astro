@@ -21,9 +21,15 @@ if (!id) {
 </span>
 
 <style>
+    .sidenote-container {
+        font-family: var(--font-default);
+        font-weight: normal;
+        white-space: initial;
+    }
+
     .sidenote-container:hover {
         .sidenote-label {
-            background: var(--g1);
+            background: var(--p);
             color: var(--fg);
         }
 
@@ -35,7 +41,7 @@ if (!id) {
 
     .sidenote-label {
         counter-increment: sidenote;
-        color: var(--g4);
+        color: var(--p);
 
         &::after {
             content: "[ " counter(sidenote) " ]";
@@ -83,7 +89,7 @@ if (!id) {
         &::before {
             content: "[ " counter(sidenote) " ]";
             position: relative;
-            inset-block-start: -0.3em;
+            inset-block-start: -0.05em;
             font-size: 0.85em;
             font-weight: bold;
             margin-inline-end: 0.125rem;
