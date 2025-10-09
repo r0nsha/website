@@ -1,4 +1,5 @@
 ---
+import { displayPubDate } from "@/lib/post";
 import { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -10,13 +11,7 @@ const { post } = Astro.props;
 
 <li>
     <time datetime={post.data.pubDate.toISOString()}>
-        {
-            post.data.pubDate.toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-            })
-        }
+        {displayPubDate(post.data.pubDate)}
     </time>
     <span>
         <a href={`/posts/${post.id}`}>{post.data.title}</a>

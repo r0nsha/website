@@ -3,6 +3,7 @@ import Base from "@/layouts/Base.astro";
 import Footnotes from "@/components/Footnotes.astro";
 import { render } from "astro:content";
 import { getPosts } from "@/lib/collections";
+import { displayPubDate } from "@/lib/post";
 
 export async function getStaticPaths() {
     const posts = await getPosts();
@@ -21,7 +22,9 @@ const { Content } = await render(post);
         <h1>{post.data.title}</h1>
         <section class="meta">
             <span>
-                Posted on <time datetime={post.data.pubDate.toISOString()}>2022-07-01</time>
+                Posted on <time datetime={post.data.pubDate.toISOString()}
+                    >{displayPubDate(post.data.pubDate)}</time
+                >
             </span>
             <span class="sep">▪</span>
             <ul>

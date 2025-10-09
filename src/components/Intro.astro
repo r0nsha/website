@@ -1,14 +1,18 @@
 ---
-
+const hasHaiku = Astro.slots.has("haiku");
 ---
 
 <section class="container">
     <slot name="text" />
-    <section class="haiku">
-        <span class="quote">“</span>
-        <slot name="haiku" />
-        <span class="quote">”</span>
-    </section>
+    {
+        hasHaiku && (
+            <section class="haiku">
+                <span class="quote">“</span>
+                <slot name="haiku" />
+                <span class="quote">”</span>
+            </section>
+        )
+    }
 </section>
 
 <style>
