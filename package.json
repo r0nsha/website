@@ -9,7 +9,8 @@
         "astro": "astro",
         "fmt": "prettier --write .",
         "ssh": "ssh website",
-        "sync": "scripts/sync"
+        "sync": "scripts/sync",
+        "sync-fonts": "scripts/sync-fonts"
     },
     "dependencies": {
         "@astrojs/mdx": "^4.3.6",
