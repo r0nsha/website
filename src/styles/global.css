@@ -59,21 +59,39 @@
     --modus-remove: #b81a1f;
 }
 
+@font-face {
+    font-family: "BerkeleyMono";
+    src: url("/src/assets/fonts/BerkeleyMono-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BerkeleyMono";
+    src: url("/src/assets/fonts/BerkeleyMono-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BerkeleyMono";
+    src: url("/src/assets/fonts/BerkeleyMono-Oblique.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "BerkeleyMono";
+    src: url("/src/assets/fonts/BerkeleyMono-Bold-Oblique.woff2") format("woff2");
+    font-weight: 700;
+    font-style: italic;
+}
+
 html {
     background: var(--bg);
     color: var(--fg);
-    font-family: var(--font-default), system-ui, sans-serif;
+    font-family: "BerkeleyMono", system-ui, sans-serif;
     counter-reset: sidenote;
-    font-size: 1.15em;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: var(--font-heading), system-ui, sans-serif;
 }
 
 h2 {
@@ -145,7 +163,7 @@ a {
 
 code {
     display: inline-block;
-    font-family: var(--font-mono), monospace;
+    font-family: "BerkeleyMono", monospace;
     background: var(--g1);
     box-shadow: inset 0 0 0 1px var(--g3);
     padding: 0 0.25rem;
@@ -195,7 +213,6 @@ pre[data-language] {
     }
 
     .copy-code {
-        font-family: var(--font-default);
         position: absolute;
         inset-block-start: 0.5rem;
         inset-inline-end: 0.5rem;

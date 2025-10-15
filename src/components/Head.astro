@@ -2,8 +2,6 @@
 import "@/styles/normalize.css";
 import "@/styles/global.css";
 
-import { Font } from "astro:assets";
-
 import { name } from "@/lib/consts";
 
 interface Props {
@@ -26,15 +24,12 @@ const pageTitle = title ? `${title} - ${name}` : name;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
-    <Font cssVariable="--font-default" preload />
-    <Font cssVariable="--font-heading" preload />
-    <Font cssVariable="--font-mono" />
 </head>
 
 <style>
     body {
         position: relative;
-        max-width: 720px;
+        max-width: 920px;
         padding: 1rem;
         margin: 0 auto;
     }

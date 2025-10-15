@@ -37,7 +37,6 @@ const hasHaiku = Astro.slots.has("haiku");
         display: flex;
         justify-content: center;
         gap: 0.25rem;
-        font-family: var(--font-mono);
         font-size: 1.15rem;
         font-weight: bold;
         color: var(--g4);
@@ -55,7 +54,7 @@ const hasHaiku = Astro.slots.has("haiku");
         }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 920px) {
         .container {
             flex-direction: column;
             gap: 0.5rem;

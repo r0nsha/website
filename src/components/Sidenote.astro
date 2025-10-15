@@ -22,7 +22,6 @@ if (!id) {
 
 <style>
     .sidenote-container {
-        font-family: var(--font-default);
         font-weight: normal;
         white-space: initial;
     }
@@ -44,7 +43,7 @@ if (!id) {
         color: var(--p);
 
         &::after {
-            content: "[ " counter(sidenote) " ]";
+            content: "[" counter(sidenote) "]";
             position: relative;
             font-size: 0.6rem;
             font-weight: bold;
@@ -53,7 +52,7 @@ if (!id) {
 
     .sidenote-link {
         counter-increment: sidenote;
-        color: var(--g4);
+        color: var(--p);
         text-decoration: none;
 
         &:hover {
@@ -61,7 +60,7 @@ if (!id) {
         }
 
         & sup::after {
-            content: "[ " counter(sidenote) " ]";
+            content: "[" counter(sidenote) "]";
             position: relative;
             font-size: 0.6rem;
             font-weight: bold;
@@ -69,6 +68,7 @@ if (!id) {
 
         &:hover {
             & sup::after {
+                background: var(--p);
                 color: var(--fg);
             }
         }
@@ -87,7 +87,7 @@ if (!id) {
         width: var(--width);
 
         &::before {
-            content: "[ " counter(sidenote) " ]";
+            content: "[" counter(sidenote) "]";
             position: relative;
             inset-block-start: -0.05em;
             font-size: 0.85em;
@@ -97,14 +97,14 @@ if (!id) {
     }
 
     /* desktop */
-    @media (min-width: 1400px) {
+    @media (min-width: 1650px) {
         .sidenote-link {
             display: none;
         }
     }
 
     /* mobile */
-    @media (max-width: 1400px) {
+    @media (max-width: 1650px) {
         .sidenote-label {
             display: none;
         }
