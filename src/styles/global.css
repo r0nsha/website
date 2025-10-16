@@ -95,43 +95,9 @@ html {
 }
 
 h2 {
-    &::before {
-        content: "#";
-        margin-inline-end: 0.5rem;
-        color: var(--p);
-    }
-}
-
-h3 {
-    &::before {
-        content: "##";
-        margin-inline-end: 0.5rem;
-        color: var(--p);
-    }
-}
-
-h4 {
-    &::before {
-        content: "###";
-        margin-inline-end: 0.5rem;
-        color: var(--p);
-    }
-}
-
-h5 {
-    &::before {
-        content: "####";
-        margin-inline-end: 0.5rem;
-        color: var(--p);
-    }
-}
-
-h6 {
-    &::before {
-        content: "#####";
-        margin-inline-end: 0.5rem;
-        color: var(--p);
-    }
+    font-size: 1.25em;
+    padding-block-end: 0.45rem;
+    border-bottom: 1px dashed var(--g2);
 }
 
 p {
